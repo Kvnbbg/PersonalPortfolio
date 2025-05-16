@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>Kevin Marville | Creative Developer & Systems Architect</title>
+  <title>Kevin Marville | Creative Developer &amp; Systems Architect</title>
   <meta name="description" content="Portfolio of Kevin Marville - Freelance Web Developer & Designer. Explore kvnbbg-creations.io for innovative web solutions, interactive chatbots, and creative digital experiences.">
   <meta name="keywords" content="Kevin Marville, Web Developer, Chatbot, Portfolio, Web Design, Freelance Developer, Digital Solutions, Space Game">
   <meta name="author" content="Kevin Marville">
@@ -258,7 +258,6 @@
       });
     })();
   </script>
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js" integrity="sha256-1g0RhkM3JwpZAvs4q7r5S3jP2VvCOZTLnNi7Mzs15fA=" crossorigin="anonymous"></script>
 
@@ -326,11 +325,7 @@
   <noscript>
     <link rel="stylesheet" href="./style.css">
   </noscript>
-   <!-- 1. CSP locked to self + our exact SRI hash -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'sha384-f0uRpI+Y...ZXaQ=='">
-
-  <!-- 2. Defer, SRI, CORS, onerror -->
+  <!-- script Defer, SRI, CORS, onerror -->
   <script
     src="script.js"
     defer
@@ -342,14 +337,14 @@
 
 <body class="bg-white dark:bg-gray-900 font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
- <!-- Notice Modal -->
+<!-- Notice Modal -->
   <div id="notice-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-labelledby="notice-title">
     <div class="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-md w-full shadow-xl">
       <div class="language-bar flex justify-end gap-2 mb-4">
-        <button class="flag text-lg" data-lang="en-US" aria-label="English (US)">🇺🇸</button>
-        <button class="flag text-lg" data-lang="fr" aria-label="French">🇫🇷</button>
-        <button class="flag text-lg" data-lang="es" aria-label="Spanish">🇪🇸</button>
-        <button class="flag text-lg" data-lang="zh" aria-label="Chinese">🇨🇳</button>
+        <button type="button" class="flag text-lg" data-lang="en-US" aria-label="English (US)">🇺🇸</button>
+        <button type="button" class="flag text-lg" data-lang="fr" aria-label="French">🇫🇷</button>
+        <button type="button" class="flag text-lg" data-lang="es" aria-label="Spanish">🇪🇸</button>
+        <button type="button" class="flag text-lg" data-lang="zh" aria-label="Chinese">🇨🇳</button>
       </div>
 
       <h2 id="notice-title" class="text-xl font-bold mb-4">
@@ -381,7 +376,7 @@
           <span data-lang="zh" hidden>想要隐藏彩蛋，请在聊天机器人中输入 <strong>“space game”</strong>。</span>
         </p>
 
-        <button id="notice-yes-btn" class="w-full px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors">
+        <button type="submit" id="notice-yes-btn" class="w-full px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors">
           <span data-lang="en-US">Let's Go!</span>
           <span data-lang="fr" hidden>C'est parti !</span>
           <span data-lang="es" hidden>¡Vamos!</span>
@@ -420,7 +415,7 @@
           <a href="#contact" class="text-sm font-medium hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Contact</a>
         </div>
         <div class="flex items-center space-x-4">
-          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+          <button type="button" id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
             <i class="fas fa-moon text-gray-800 dark:text-gray-200"></i>
             <i class="fas fa-sun hidden dark:block"></i>
             Theme
@@ -428,7 +423,7 @@
   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
 </svg>
           </button>
-          <button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-hs-overlay="#mobile-menu" aria-label="Toggle mobile menu">
+          <button type="button" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-hs-overlay="#mobile-menu" aria-label="Toggle mobile menu">
             <i class="fas fa-bars"></i>
             Menu
           </button>
@@ -443,7 +438,7 @@
       <div class="flex flex-col bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
         <div class="flex justify-between items-center py-4 px-4 border-b border-gray-200 dark:border-gray-700">
           <span class="text-lg font-bold gradient-text">Menu</span>
-          <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-hs-overlay="#mobile-menu" aria-label="Close mobile menu">
+          <button type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-hs-overlay="#mobile-menu" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -469,7 +464,7 @@
             Hi, I'm <span class="gradient-text">Kevin Marville</span>
           </h1>
           <h2 class="text-2xl sm:text-3xl text-gray-600 dark:text-gray-400">
-            Creative Developer & Systems Architect
+            Creative Developer &amp; Systems Architect
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl">
             I craft innovative digital experiences that blend cutting-edge technology with creative design, delivering impactful solutions for modern challenges.
@@ -486,8 +481,8 @@
         <div class="relative animate-fade-in">
           <div class="w-full h-80 md:h-96 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-2xl overflow-hidden flex items-center justify-center">
             <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                 alt="Developer workspace" 
-                 class="w-full h-full object-cover opacity-90" loading="lazy">
+      alt="Developer workspace" 
+  class="w-full h-full object-cover opacity-90" loading="lazy">
           </div>
           <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-500 rounded-full opacity-20 animate-float"></div>
         </div>
@@ -513,9 +508,9 @@
           </p>
           <div class="pt-4">
             <a href="https://www.mediafire.com/file/ovwjdxtdwwkyk2i/Kevin_Marville_CV_FullStack_Web-Mobile_Developer_Paris_2025.pdf/file" 
-               class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium" 
-               target="_blank" 
-               rel="noopener noreferrer">
+    class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium" 
+  target="_blank" 
+      rel="noopener noreferrer">
               Download Resume
               <i class="fas fa-arrow-down ml-2"></i>
             </a>
@@ -555,7 +550,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12" aria-labelledby="services-heading">
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12" aria-label="services-heading">
       <div class="text-center mb-12">
         <h2 id="services-heading" class="text-3xl font-bold">Technical Expertise</h2>
         <p class="text-gray-500 dark:text-gray-400 mt-2">Core technologies and services I offer</p>
@@ -582,10 +577,9 @@
     </section>
 
     <!-- Services Section -->
-<section id="services" class="services-section" aria-labelledby="services-heading">
+<section class="services-section" aria-labelledby="services-heading">
   <div class="section-container">
-    <h2 id="services-heading" class="section-title">Technical Offerings</h2>
-    
+    <h2 class="section-title">Technical Offerings</h2>
     <div class="services-grid">
       <article class="service-card">
         <div class="service-header">
@@ -639,7 +633,6 @@
 <section id="personal-universe" class="universe-section" aria-labelledby="universe-heading">
   <div class="section-container">
     <h2 id="universe-heading" class="section-title">My Universe</h2>
-    
     <div class="universe-grid">
       <!-- Technical Pursuits -->
       <article class="dimension-card tech-dimension">
@@ -652,7 +645,7 @@
             <!--<i class="fas fa-robot list-icon"></i>-->
             <div class="list-content">
               <h4>Robotic Systems</h4>
-              <p>Exploring ROS frameworks & autonomous navigation</p>
+              <p>Exploring ROS frameworks &amp; autonomous navigation</p>
             </div>
           </li>
           <li>
@@ -664,21 +657,22 @@
           </li>
         </ul>
       </article>
+      </div>
 
       <!-- Creative Expressions -->
       <article class="dimension-card creative-dimension">
         <div class="dimension-header">
           <i class="fas fa-music dimension-icon"></i>
-          <h3>Beatmaking, Production & Sonic Pi Programmation</h3>
+          <h3>Beatmaking, Production &amp; Sonic Pi Programmation</h3>
         </div>
         <div class="music-grid">
           <a href="https://soundcloud.com/kvnbbg" class="music-platform soundcloud" 
-             rel="noopener noreferrer" target="_blank">
+    rel="noopener noreferrer" target="_blank">
             <i class="fab fa-soundcloud"></i>
             <span>Legacy Tracks</span>
           </a>
           <a href="https://open.spotify.com/album/4U4GhULZG8ZKSbDOY9iJ99" class="music-platform spotify" 
-             rel="noopener noreferrer" target="_blank">
+rel="noopener noreferrer" target="_blank">
             <i class="fab fa-spotify"></i>
             <span>Streaming Catalog</span>
           </a>
@@ -729,7 +723,6 @@
       </article>
     </div>
 </section>
-    
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" aria-labelledby="projects-heading">
       <div class="text-center mb-12">
@@ -815,10 +808,10 @@
         </div>
               <div class="progress-links">
         <a href="https://allmylinks.com/kevinmarville" 
-           class="link-hub pixel-font"
-           target="_blank" 
-           rel="noopener noreferrer"
-           aria-label="Visit Kevin Marville's link hub">
+    class="link-hub pixel-font"
+  target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="Visit Kevin Marville's link hub">
           <i class="fas fa-link link-icon"></i>
           Find More
         </a>
@@ -832,11 +825,11 @@
         <h2 id="chatbot-heading" class="text-3xl font-bold">Interactive Chatbot</h2>
         <p class="text-gray-500 dark:text-gray-400 mt-2">Engage with my AI assistant</p>
       </div>
-      <div class="chatbot max-w-3xl mx-auto animate-fade-in" role="region" aria-live="polite">
+      <div class="chatbot max-w-3xl mx-auto animate-fade-in" aria-live="polite">
         <div id="chat-output" class="terminal-output">
           <p>
-            Welcome to my interactive chatbot! I'm here to answer questions about my background, projects, or tech interests. 
-            <br><em>(Psst! Try typing <strong>"space game"</strong> for a surprise!)</em>
+            Welcome to my chatbot! I'm here to answer questions about my background, projects, or tech interests.
+            <br><em>(Psst! Try typing <strong>"space game"</strong> for a surprise! Or "list")</em>
           </p>
         </div>
         <div class="input-container">
@@ -846,7 +839,7 @@
             placeholder="💬 Curious? Ask me anything! Want to explore specific keywords or topics? Want to peek at hidden keywords? Just type  list to see what’s available." 
             aria-label="Chatbot input"
             onkeydown="if(event.key==='Enter') sendMessage();">
-          <button onclick="sendMessage()" aria-label="Send message">Send</button>
+          <button type="button" onclick="sendMessage()" aria-label="Send message">Send</button>
         </div>
       </div>
     </section>
@@ -893,7 +886,7 @@
                     Instagram<i class="fab fa-instagram"></i>
                   </a>
                   <a href="https://linkedin.com/in/kevinmarville" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                   Linkedin <i class="fab fa-linkedin"></i>
+          Linkedin <i class="fab fa-linkedin"></i>
                   </a>
                   <a href="https://x.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="X profile">
                     X<i class="fab fa-twitter"></i>
@@ -907,7 +900,7 @@
           <div>
             <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
             <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors"  placeholder="Kevin Marville"
-           required aria-required="true">
+  required aria-required="true">
           </div>
           <div>
             <label for="email" class="block text-sm font-medium mb-1">Email</label>
@@ -960,7 +953,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-colors hidden" aria-label="Back to top">
+  <button type="reset" id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-colors hidden" aria-label="Back to top">
     Back to top
     <i class="fas fa-arrow-up"></i>
   </button>
@@ -968,7 +961,7 @@
 </div>
 
   <!-- 3. Fallback for load failures -->
-  <div id="fallback" style="display:none; padding:1em; background:#fee; color:#900;">
+  <div id="fallback" class="display:none; padding:1em; background:#fee; color:#900;">
     <p>Oops—some functionality failed to load. Please try again later.</p>
   </div>
   <script>
