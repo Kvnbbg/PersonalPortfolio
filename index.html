@@ -28,7 +28,15 @@
   <link id="faviconIco" rel="shortcut icon" href="/assets/f/favicon.ico">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta id="browserconfig" name="msapplication-config" content="/assets/browserconfig.xml">
-  <link id="webManifest" rel="manifest" href="/assets/site.webmanifest">
+  <link rel="manifest" href="/assets/site.webmanifest">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .catch(err => console.error('SW registration failed:', err));
+    });
+  }
+</script>
 
   <meta property="og:title" content="Kevin Marville's Creations & Portfolio">
   <meta property="og:description" content="Discover kvnbbg-creations.io, showcasing Kevin Marville's innovative web development and digital solutions.">
@@ -321,13 +329,13 @@
     }
   </script>
       <!-- Preload CSS (Advanced Performance Optimization) -->
-  <link rel="preload" href="./style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/css/style.css">
   </noscript>
   <!-- script Defer, SRI, CORS, onerror -->
   <script
-    src="script.js"
+    src="/js/script.js"
     defer
     integrity="sha384-f0uRpI+Y...ZXaQ=="
     crossorigin="anonymous"
@@ -440,6 +448,7 @@
           <span class="text-lg font-bold gradient-text">Menu</span>
           <button type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" data-hs-overlay="#mobile-menu" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
+            Menu
           </button>
         </div>
         <div class="flex flex-col p-4 space-y-3">

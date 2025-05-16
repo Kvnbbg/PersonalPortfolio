@@ -75,4 +75,4 @@ For any questions or further improvements, please feel free to contact the repos
 
 ---
 
-*This document is part of the repository for the [Personal Portfolio Template](https://github.com/Kvnbbg/Personal-Portfolio-Template).*
+*This document is part of the repository for the [Personal Portfolio](https://github.com/Kvnbbg/PersonalPortfolio).*
