@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <!-- Responsive & Mobile Optimized -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kvnbbg-creations.io" />
+
+  <!-- DNS Prefetch & Preconnect for External Resources -->
+  <link rel="dns-prefetch" href="//kvnbbg.fr" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Title -->
+  <title>Personal Portfolio of Kevin Marville</title>
+
+  <!-- SEO Meta Tags -->
+  <meta
+    name="description"
+    content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects. Discover cutting-edge web development, creative digital solutions, and a space game trigger."
+  />
+  <meta
+    name="keywords"
+    content="Kevin Marville, Chatbot, Modern Portfolio, Web Design, Freelance Developer, Digital Solutions, Innovative Projects, Web Development, Digital Creations"
+  />
+  <meta name="author" content="Kevin Marville" />
+
+  <!-- Cross-Platform & Progressive Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Icons & Favicons (Primary URLs with fallback support) -->
+  <!-- Primary paths now use '/assets/f/' -->
+  <link id="appleTouchIcon" rel="apple-touch-icon" sizes="180x180" href="https://kvnbbg-creations.io/assets/f/apple-touch-icon.png" />
+  <link id="favicon32" rel="icon" type="image/png" sizes="32x32" href="https://kvnbbg-creations.io/assets/f/favicon-32x32.png" />
+  <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="https://kvnbbg-creations.io/assets/f/favicon-16x16.png" />
+  <link id="faviconIco" rel="shortcut icon" href="https://kvnbbg-creations.io/assets/f/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta id="browserconfig" name="msapplication-config" content="https://kvnbbg-creations.io/assets/browserconfig.xml" />
+
+  <!-- Web App Manifest for PWA capabilities -->
+  <!-- Fallback chain: first online, then local relative path -->
+  <link id="webManifest" rel="manifest" href="https://kvnbbg-creations.io/assets/site.webmanifest" />
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="Creations, Chatbot & Portfolio" />
+  <meta property="og:description" content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects." />
+  <meta id="ogImage" property="og:image" content="https://kvnbbg-creations.io/assets/f/og-image.jpg" />
+  <meta property="og:url" content="https://kvnbbg-creations.io" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="kvnbbg-creations.io - Modern 2025 Interactive Chatbot &amp; Portfolio" />
+  <meta name="twitter:description" content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects for 2025." />
+  <meta id="twitterImage" name="twitter:image" content="https://kvnbbg-creations.io/assets/f/twitter-og-image.jpg" />
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Kevin Josué Marville",
+    "url": "https://kvnbbg-creations.io",
+    "sameAs": [
+      "https://github.com/kvnbbg",
+      "https://www.linkedin.com/in/kevinmarville",
+      "https://x.com/techandstream",
+      "https://threads.net/@techandstream",
+      "https://kvnbbg.fr"
+    ],
+    "jobTitle": "Freelance Web Developer & Digital Creator",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "kvnbbg-creations.io"
+    },
+    "image": "https://kvnbbg-creations.io/assets/f/profile-image.jpg"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload CSS (Advanced Performance Optimization) -->
+  <link rel="preload" href="./assets/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="./assets/style.css">
+  </noscript>
+
+  <!-- Service Worker Registration for PWA (Advanced Inclusion) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('ServiceWorker registration successful with scope:', registration.scope))
+          .catch(error => console.error('ServiceWorker registration failed:', error));
+      });
+    }
+  </script>
+
+  <!-- Fun Developer Easter Egg -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log(
+        "%c🚀 Hey there, rockstar coder, it's a easter egg! 🚀\n\nRemember: Every bug you squash is a step closer to legendary status. Keep on shining, keep on smiling, and may your code always compile on the first try! 🍀💻✨\n\nStay awesome and code on! 😎",
+        "color: #222; background: #f0f0f0; padding: 12px; font-size: 16px; border: 2px dashed #222; border-radius: 8px;"
+      );
+    });
+  </script>
+
+  <!-- Advanced Analytics / Tag Manager Inclusion (Placeholder) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script>
+  -->
+
+  <!--
+    Asset Checker Notice:
+      - Always check the licensing terms before using images or icons, even if they are marked as "free."
+      - Some platforms require attribution for free usage.
+      - Avoid using copyrighted material without proper authorization.
+
+    Recommended Free Resources:
+      Icons:
+        1. FontAwesome: https://fontawesome.com/
+        2. Flaticon: https://www.flaticon.com/
+        3. IconFinder: https://www.iconfinder.com/free_icons
+        4. Icons8: https://icons8.com/
+        5. The Noun Project: https://thenounproject.com/
+        6. Material Icons: https://fonts.google.com/icons
+        7. Bootstrap Icons: https://icons.getbootstrap.com/
+        8. Remix Icon: https://remixicon.com/
+        9. Hero Icons: https://heroicons.com/
+        10. Eva Icons: https://akveo.github.io/eva-icons/
+
+      Images:
+        1. Unsplash: https://unsplash.com/
+        2. Pexels: https://www.pexels.com/
+        3. Pixabay: https://www.pixabay.com/
+        4. Freepik: https://www.freepik.com/
+        5. Burst: https://burst.shopify.com/
+        6. StockSnap: https://stocksnap.io/
+        7. RawPixel: https://www.rawpixel.com/
+        8. Reshot: https://www.reshot.com/
+        9. ISO Republic: https://isorepublic.com/
+       10. Life of Pix: https://www.lifeofpix.com/
+  -->
+
+  <!-- Improved Asset Checker Script -->
+  <script>
+    // Using modern async/await syntax for clarity and robustness.
+    (() => {
+      const isImageAsset = url => /\.(png|jpg|jpeg|gif|ico)$/i.test(url);
+
+      // Returns a promise that resolves if the asset loads successfully.
+      const checkAsset = (url, element) => {
+        return new Promise((resolve, reject) => {
+          if (isImageAsset(url)) {
+            const img = new Image();
+            img.onload = () => resolve(url);
+            img.onerror = () => reject(new Error(`Image failed: ${url}`));
+            img.src = url;
+          } else {
+            // For non-image assets, perform a HEAD request (CORS dependent)
+            fetch(url, { method: 'HEAD' })
+              .then(response => response.ok ? resolve(url) : reject(new Error(`HEAD failed: ${url}`)))
+              .catch(() => reject(new Error(`Fetch failed: ${url}`)));
+          }
+        });
+      };
+
+      // Iterates through the URL list until a valid asset is found.
+      const tryAssetUrls = async (urls, element) => {
+        for (const url of urls) {
+          try {
+            const loadedUrl = await checkAsset(url, element);
+            // Update element attribute based on its tag type.
+            if (element.tagName === "LINK") {
+              element.href = loadedUrl;
+            } else if (element.tagName === "META") {
+              element.content = loadedUrl;
+            }
+            console.log(`Asset loaded successfully: ${loadedUrl}`);
+            return;
+          } catch (error) {
+            console.warn(error.message);
+          }
+        }
+        console.error("No valid asset found for element:", element);
+      };
+
+      // Define asset fallback chains.
+      const assetsToCheck = [
+        {
+          id: "appleTouchIcon",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/apple-touch-icon.png",
+            "https://kvnbbg-creations.io/assets/materials/apple-touch-icon.png",
+            "https://source.unsplash.com/random/180x180/?icon",
+            "https://picsum.photos/180/180"
+          ]
+        },
+        {
+          id: "favicon32",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon-32x32.png",
+            "https://kvnbbg-creations.io/assets/materials/favicon-32x32.png",
+            "https://source.unsplash.com/random/32x32/?icon",
+            "https://picsum.photos/32/32"
+          ]
+        },
+        {
+          id: "favicon16",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon-16x16.png",
+            "https://kvnbbg-creations.io/assets/materials/favicon-16x16.png",
+            "https://source.unsplash.com/random/16x16/?icon",
+            "https://picsum.photos/16/16"
+          ]
+        },
+        {
+          id: "faviconIco",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon.ico",
+            "https://kvnbbg-creations.io/assets/materials/favicon.ico",
+            "https://source.unsplash.com/random/16x16/?icon",
+            "https://picsum.photos/16/16"
+          ]
+        },
+        {
+          id: "browserconfig",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/browserconfig.xml",
+            "./assets/materials/browserconfig.xml"
+          ]
+        },
+        {
+          id: "webManifest",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/site.webmanifest",
+            "./assets/site.webmanifest"
+          ]
+        },
+        {
+          id: "ogImage",
+          // Updated fallback order:
+          fallbackChain: [
+            "https://picsum.photos/1200/630",
+            "https://source.unsplash.com/random/1200x630/?landscape",
+            "https://kvnbbg-creations.io/assets/f/og-image.jpg",
+            "https://kvnbbg-creations.io/assets/materials/og-image.jpg"
+          ]
+        },
+        {
+          id: "twitterImage",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/twitter-og-image.jpg",
+            "https://kvnbbg-creations.io/assets/materials/twitter-og-image.jpg",
+            "https://source.unsplash.com/random/1200x600/?technology",
+            "https://picsum.photos/1200/600"
+          ]
+        }
+      ];
+
+      // When DOM is ready, attempt to load each asset.
+      document.addEventListener("DOMContentLoaded", () => {
+        assetsToCheck.forEach(item => {
+          const element = document.getElementById(item.id);
+          if (element) {
+            tryAssetUrls(item.fallbackChain, element);
+          }
+        });
+      });
+    })();
+  </script>
+</head>
+
+  <body class="active-en">
+    <!-- Notice Modal: Story & Call-to-Action -->
+    <div id="notice-modal">
+      <div class="notice-content">
+        <h2>My personal portfolio!</h2>
+        <p> The computer life let me excited, to share innovations throught the internet and interactive experiences.
+        </p>
+        <p>
+          Bellow, this chatbot not only give answers, we can keep chatting throught my background, my projects, my gitHub, or my blog (<a href="https://kvnbbg.fr"  rel="noopener noreferrer" target="_blank">kvnbbg.fr</a>), it also hides a secret feature... 
+          If you want to see it, simply type <strong>"space game"</strong> to unlock a special link!
+        </p><br>
+        <p>Are you ready to try? Click “Yes, I Understand” to continue.</p>
+        <button id="notice-yes-btn">Yes, I Understand</button>
+      </div>
+    </div>
+
+    <!-- Header with Matrix Text Effect -->
+    <header>
+      <h1>
+        <span class="matrix-text" data-text="Creations.io">
+          <span>Creations.io a personal portfolio</span>
+        </span>
+      </h1>
+      <p>Creations, Chatbot & Portolio</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><a href="#chatbot">Chat</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+      
+<!-- About Section -->
+<section id="about" class="profile-section" aria-labelledby="about-heading">
+  <div class="section-container">
+    <h2 id="about-heading" class="section-title">Digital Architect</h2>
+    
+    <div class="profile-card">
+      <div class="profile-header">
+        <h3 class="profile-name">Kevin Marville <span class="profile-alias">(KV)</span></h3>
+        <p class="profile-tagline">Systems Optimizer & Creative Technologist</p>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-bio">
+          <p class="bio-text">Detail-oriented professional specializing in workflow alchemy. I transform complex processes into streamlined systems through strategic technical solutions.</p>
+          
+          <div class="expertise-grid">
+            <div class="expertise-item">
+              <i class="fas fa-project-diagram expertise-icon"></i>
+              <h4 class="expertise-title">Process Engineering</h4>
+              <p>Automation architecture and system optimization</p>
+            </div>
+            <div class="expertise-item">
+              <i class="fas fa-chart-network expertise-icon"></i>
+              <h4 class="expertise-title">Technical Orchestration</h4>
+              <p>Full-stack development and infrastructure design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-philosophy">
+          <blockquote class="philosophy-quote">
+            <div class="quote-icon">“</div>
+            <p>Success isn't about avoiding chaos—it's about mastering the dance within it</p>
+            <footer class="quote-source">Iron Flame Inspiration</footer>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="profile-social">
+        <a href="https://github.com/kvnbbg" class="social-link" rel="noopener noreferrer" target="_blank">
+          <i class="fab fa-github"></i>
+          <span class="social-handle">@kvnbbg</span>
+        </a>
+        <a href="https://x.com/techandstream" class="social-link" rel="noopener noreferrer" target="_blank">
+          <i class="fab fa-twitter"></i>
+          <span class="social-handle">@techandstream</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section" aria-labelledby="services-heading">
+  <div class="section-container">
+    <h2 id="services-heading" class="section-title">Technical Offerings</h2>
+    
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-header">
+          <i class="fas fa-code service-icon"></i>
+          <h3 class="service-title">Frontend Engineering</h3>
+        </div>
+        <div class="service-content">
+          <p>Modern implementation with reactive architectures</p>
+          <ul class="tech-stack">
+            <li>React/Next.js</li>
+            <li>TypeScript</li>
+            <li>WebGL/Three.js</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-header">
+          <i class="fas fa-server service-icon"></i>
+          <h3 class="service-title">Backend Development</h3>
+        </div>
+        <div class="service-content">
+          <p>Scalable system architecture and API design</p>
+          <ul class="tech-stack">
+            <li>Node.js/NestJS</li>
+            <li>GraphQL</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-header">
+          <i class="fas fa-cube service-icon"></i>
+          <h3 class="service-title">Digital Creation</h3>
+        </div>
+        <div class="service-content">
+          <p>Immersive experience development</p>
+          <ul class="tech-stack">
+            <li>WebXR</li>
+            <li>WebAssembly</li>
+            <li>Procedural Generation</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+      <!-- Personal Universe Section -->
+<section id="personal-universe" class="universe-section" aria-labelledby="universe-heading">
+  <div class="section-container">
+    <h2 id="universe-heading" class="section-title">My Multidimensional Universe</h2>
+    
+    <div class="universe-grid">
+      <!-- Technical Pursuits -->
+      <article class="dimension-card tech-dimension">
+        <div class="dimension-header">
+          <i class="fas fa-microchip dimension-icon"></i>
+          <h3>Technical Frontiers</h3>
+        </div>
+        <ul class="dimension-list">
+          <li>
+            <i class="fas fa-robot list-icon"></i>
+            <div class="list-content">
+              <h4>Robotic Systems</h4>
+              <p>Exploring ROS frameworks & autonomous navigation</p>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-cube list-icon"></i>
+            <div class="list-content">
+              <h4>Systems Programming</h4>
+              <p>C++20 • Kernel Development • Embedded Systems</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Creative Expressions -->
+      <article class="dimension-card creative-dimension">
+        <div class="dimension-header">
+          <i class="fas fa-music dimension-icon"></i>
+          <h3>Beatmaking, Production & Sonic Pi Programmation</h3>
+        </div>
+        <div class="music-grid">
+          <a href="https://soundcloud.com/kvnbbg" class="music-platform soundcloud" 
+             rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-soundcloud"></i>
+            <span>Legacy Tracks</span>
+          </a>
+          <a href="https://open.spotify.com/album/4U4GhULZG8ZKSbDOY9iJ99" class="music-platform spotify" 
+             rel="noopener noreferrer" target="_blank">
+            <i class="fab fa-spotify"></i>
+            <span>Streaming Catalog</span>
+          </a>
+        </div>
+        <p class="music-note">Early compositions available across platforms (like Amazon Music or Deezer).</p>
+      </article>
+
+      <!-- Lifestyle Matrix -->
+      <article class="dimension-card life-dimension">
+        <div class="dimension-header">
+          <i class="fas fa-infinity dimension-icon"></i>
+          <h3>Life Equation</h3>
+        </div>
+        <div class="life-grid">
+  <div class="life-factor">
+    <div class="factor-icon">👨👧</div>
+    <p>Fatherhood Chronicles<br>(30 y/o Mentor-in-Progress)</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/techandstream" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/techandstream" target="_blank" rel="noopener noreferrer" aria-label="Facebook page">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="life-factor">
+    <div class="factor-icon">🌍</div>
+    <p>Culinary Cartography<br>37 Countries Explored</p>
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@techandstream" target="_blank" rel="noopener noreferrer" aria-label="TikTok account">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="life-factor">
+    <div class="factor-icon">📚</div>
+    <p>Literary Obsessions<br>Math/Physics Deep Dives</p>
+    <div class="social-links">
+      <a href="https://www.goodreads.com/user/show/189432744-kevin-marville" target="_blank" rel="noopener noreferrer" aria-label="Goodreads profile">
+        <i class="fab fa-goodreads"></i>
+      </a>
+    </div>
+  </div>
+</div>
+      </article>
+    </div>
+
+    <!-- Continuous Learning Callout -->
+    <div class="learning-callout">
+      <i class="fas fa-brain callout-icon"></i>
+      <div class="callout-content">
+        <h4>Perpetual Education Engine</h4>
+        <p>Self-disciplined learning: 25h/week across<br>
+        Technical Journals • Research Papers • Experimental Projects</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading">Projects</h2>
+  
+  <article itemscope itemtype="https://schema.org/SoftwareApplication">
+    <h3>
+      <a href="https://github.com/Kvnbbg/bookish-octo-invention/blob/main/README.md" 
+         rel="noopener noreferrer" 
+         target="_blank"
+         aria-label="Visit Bookish Octo Invention GitHub repository (opens in new tab)"
+         class="secure-link">
+        Bookish-Octo-Invention
+      </a>
+    </h3>
+    <p itemprop="description">
+      Recipe sharing platform for dietary-specific needs. Features include:
+    </p>
+    <ul class="project-features">
+      <li>Gluten-free recipe filtering</li>
+      <li>Vegan meal planner</li>
+      <li>Low-carb diet tracker</li>
+    </ul>
+    <div class="project-links">
+      <a href="https://github.com/kvnbbg/bookish-octo-invention" 
+         class="project-link cta-button"
+         rel="noopener noreferrer"
+         data-cta="Project GitHub"
+         aria-label="View Bookish Octo Invention source code">
+        View Source Code
+      </a>
+      <a href="https://kvnbbg.github.io/bookish-octo-invention/" 
+         class="project-link cta-button secondary"
+         rel="noopener noreferrer"
+         data-cta="Project Demo"
+         aria-label="View live demo (opens in new tab)">
+        Live Demo
+      </a>
+    </div>
+  </article>
+
+  <article itemscope itemtype="https://schema.org/SoftwareApplication">
+    <h3>
+      <a href="https://github.com/Kvnbbg/wp-malware-scanner" 
+         rel="noopener noreferrer"
+         target="_blank"
+         aria-label="Visit Malware Scanner project page (opens in new tab)"
+         class="secure-link">
+        WP Malware Scanner
+      </a>
+    </h3>
+    <p itemprop="description">
+      Security analysis tool with advanced features:
+    </p>
+    <ul class="project-features">
+      <li>Pattern-based malware detection</li>
+      <li>Real-time threat analysis</li>
+      <li>Sandboxed execution environment</li>
+    </ul>
+    <div class="project-links">
+      <a href="https://github.com/Kvnbbg/wp-malware-scanner/wiki" 
+         class="project-link cta-button"
+         rel="noopener noreferrer"
+         data-cta="Scanner GitHub"
+         aria-label="View Malware Scanner documentation">
+        Documentation
+      </a>
+      <a href="https://kvnbbg.github.io/wp-malware-scanner/" 
+         class="project-link cta-button secondary"
+         rel="noopener noreferrer"
+         data-cta="Scanner Demo"
+         aria-label="Try online demo (opens in new tab)">
+        Online Demo
+      </a>
+    </div>
+  </article>
+</section>
+
+      <!-- Progress Section (Engine Loop Element such as Games
+     
+-->
+      <section id="progress" class="progress-section" aria-labelledby="progress-heading">
+  <div class="section-container">
+    <h2 id="progress-heading" class="progress-title pixel-font">Daily Development Tracker</h2>
+    
+    <div class="progress-wrapper">
+      <div class="progress-card">
+        <div class="progress-header">
+          <i class="fas fa-rocket progress-icon"></i>
+          <span class="progress-label">Current Initiative Completion</span>
+        </div>
+        <progress 
+          id="progressBar" 
+          class="neon-progress" 
+          value="72" 
+          max="100"
+          aria-label="Project completion progress"
+        ></progress>
+        <div class="progress-meta">
+          <span class="progress-percent">72%</span>
+          <span class="progress-update">Updated: 2024-06-20</span>
+        </div>
+      </div>
+
+      <div class="progress-links">
+        <a href="https://allmylinks.com/kevinmarville" 
+           class="link-hub pixel-font"
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Visit Kevin Marville's link hub">
+          <i class="fas fa-link link-icon"></i>
+          Digital Presence Hub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.progress-section {
+  padding: 4rem 1rem;
+  background: #0a0a12;
+  color: #ffffff;
+}
+
+.progress-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.progress-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-progress {
+  width: 100%;
+  height: 25px;
+  margin: 1.5rem 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.neon-progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+.neon-progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  border-radius: 20px;
+  position: relative;
+  animation: glow 2s infinite;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #8a8a9e;
+  font-size: 0.9rem;
+}
+
+.link-hub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4facfe;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 2px solid #4facfe;
+  border-radius: 30px;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.link-hub:hover {
+  background: rgba(79, 172, 254, 0.1);
+  transform: translateY(-2px);
+}
+
+.pixel-font {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #4facfe; }
+  50% { box-shadow: 0 0 20px #4facfe; }
+  100% { box-shadow: 0 0 5px #4facfe; }
+}
+
+@media (max-width: 768px) {
+  .progress-card {
+    padding: 1.5rem;
+  }
+  
+  .neon-progress {
+    height: 20px;
+  }
+}
+</style>
+
+      <!-- Chatbot Section -->
+      <section id="chatbot" aria-labelledby="chatbot-heading">
+        <h2 id="chatbot-heading">Chatbot</h2>
+        <div class="chatbot" role="region" aria-live="polite">
+          <div id="chat-output" class="terminal-output">
+            <p>
+              Welcome to my chatbot! Made by human hand, think to be interractive. So, why you are waiting ? Ask me about my background, projects, GitHub, or my blog.
+              <br /><em>(Tip: Type <strong><u>space game</u></strong> to play!)</em>
+            </p>
+          </div>
+          <!--
+          <div id="loading-animation" class="loading-animation" style="display: none;">
+            <span></span><span></span><span></span>
+          </div>
+          -->
+          <div class="input-container">
+            <input
+              type="text"
+              id="user-message"
+              placeholder="Type your message here..."
+              onkeydown="if(event.key==='Enter') sendMessage();"
+            />
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="contact-container">
+    <h2 id="contact-heading" class="section-heading">Get in Touch</h2>
+    
+    <form id="contact-form" class="contact-form" aria-label="Contact form">
+      <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="form-input"
+          placeholder="John Doe"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-input"
+          placeholder="john@example.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          class="form-textarea"
+          placeholder="How can I help you?"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">
+        <span class="button-text">Send Message</span>
+        <span class="button-icon" aria-hidden="true">→</span>
+      </button>
+    </form>
+  </div>
+</section>
+    </main>
+
+    <!-- Footer: Social Links & Copyright -->
+    <footer class="py-5 bg-dark">
+      <div class="container text-center">
+        <div class="social-links mb-3">
+          <a href="https://kvnbbg.fr" target="_blank"><i class="fas fa-rss"></i> Blog</a>
+          <a href="https://www.instagram.com/techandstream" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://www.threads.net/@techandstream" target="_blank"><i class="fas fa-comment-dots"></i> Threads</a>
+          <a href="https://x.com/techandstream" target="_blank"><i class="fab fa-twitter"></i> X</a>
+          <a href="https://www.youtube.com/techandstream" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="https://www.facebook.com/techandstream" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+        <p class="m-0 text-white">&copy; 2025 Kevin Marville. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      /********* Notice Modal Handling **********/
+      (function() {
+        const noticeModal = document.getElementById("notice-modal");
+        const noticeYesBtn = document.getElementById("notice-yes-btn");
+        noticeYesBtn.addEventListener("click", () => {
+          noticeModal.style.transition = "opacity 0.5s ease-out";
+          noticeModal.style.opacity = 0;
+          setTimeout(() => { noticeModal.style.display = "none"; }, 500);
+        });
+      })();
+
+      /********* Chatbot Interaction Logic **********/
+      function sendMessage() {
+        const inputField = document.getElementById("user-message");
+        const message = inputField.value.trim();
+        if (!message) return;
+        const chatOutput = document.getElementById("chat-output");
+        inputField.value = "";
+
+        // Create user message bubble
+        const userBubble = document.createElement("p");
+        userBubble.style.textAlign = "right";
+        userBubble.style.backgroundColor = "#007aff";
+        userBubble.style.color = "#fff";
+        userBubble.style.padding = "10px 15px";
+        userBubble.style.margin = "10px 0";
+        userBubble.style.borderRadius = "20px 20px 20px 0";
+        userBubble.textContent = message;
+        chatOutput.appendChild(userBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+
+        // Check for secret trigger: "space game"  🛸
+        if (message.toLowerCase() === "space game") {
+          setTimeout(() => {
+            window.open("https://kvnbbg.github.io/Underconstruction-Screen-Space-theme/", "_blank");
+          }, 500);
+          addBotMessage("Secret trigger activated! Opening game link...🛸 ");
+          return;
+        }
+
+        // Basic responses for common queries 🛸
+        if (message.toLowerCase().includes("about")) {
+          addBotMessage("I began my journey at STUDI and now work as a freelance developer creating projects.");
+        } else if (message.toLowerCase().includes("project")) {
+          addBotMessage("Check out my projects on my portfolio and GitHub. Visit my blog at https://kvnbbg.fr for more insights!");
+        } else if (message.toLowerCase().includes("github")) {
+          addBotMessage("My GitHub profile: https://github.com/kvnbbg");
+        } else if (message.toLowerCase().includes("blog")) {
+          addBotMessage("Visit my blog here: https://kvnbbg.fr");
+        } else {
+          showLoadingAnimation();
+          setTimeout(() => {
+            hideLoadingAnimation();
+            addBotMessage("I'm continuously learning and evolving. Ask me more about my work, type 'about'  or type 'space game' for a surprise! 🛸");
+          }, 2000);
+        }
+      }
+
+      function addBotMessage(text) {
+        const chatOutput = document.getElementById("chat-output");
+        const botBubble = document.createElement("p");
+        botBubble.style.textAlign = "left";
+        botBubble.style.backgroundColor = "#e5e5ea";
+        botBubble.style.color = "#000";
+        botBubble.style.padding = "10px 15px";
+        botBubble.style.margin = "10px 0";
+        botBubble.style.borderRadius = "20px 20px 0 20px";
+        botBubble.textContent = text;
+        chatOutput.appendChild(botBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+      }
+
+      function showLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "flex";
+      }
+      function hideLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "none";
+      }
+
+      /********* Engine Loop for Continuous Updates **********/
+      let progress = 0;
+      function updateProgress() {
+        if (progress < 20) {
+          progress += 0.2;
+        } else {
+          progress = 0;
+        }
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+          progressBar.value = progress;
+          const colorFactor = Math.sin(progress * Math.PI / 20);
+          const energyColor = `rgb(${76 + colorFactor * 50}, ${175 + colorFactor * 80}, 50)`;
+          progressBar.style.backgroundColor = energyColor;
+          progressBar.style.setProperty('--glow-color', energyColor);
+        }
+      }
+      function engineLoop() {
+        updateProgress();
+        requestAnimationFrame(engineLoop);
+      }
+      engineLoop();
+    </script>
+  </body>
+</html>
