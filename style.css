@@ -1,0 +1,164 @@
+/* =============================
+   Variables for theme styling
+   ============================= */
+:root {
+  --bg-light: #f9fafb;
+  --bg-dark: #1f2937;
+  --bubble-bg-user: #3b82f6;
+  --bubble-bg-bot: #e5e7eb;
+  --color-user-text: #ffffff;
+  --color-bot-text: #000000;
+  --radius-base: 0.5rem;
+  --radius-bubble: 1rem;
+  --gap-base: 0.5rem;
+}
+
+/* =============================
+   Chat Output Container
+   ============================= */
+#chat-output {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-base);
+  height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: var(--bg-light);
+  border-radius: var(--radius-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================
+   Chat Bubbles
+   ============================= */
+#chat-output p {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+#chat-output p.bot {
+  background-color: var(--bubble-bg-bot);
+  color: var(--color-bot-text);
+  align-self: flex-start;
+  text-align: left;
+  border-radius: var(--radius-bubble) var(--radius-bubble) 0 var(--radius-bubble);
+}
+#chat-output p.user {
+  background-color: var(--bubble-bg-user);
+  color: var(--color-user-text);
+  align-self: flex-end;
+  text-align: right;
+  border-radius: var(--radius-bubble) var(--radius-bubble) var(--radius-bubble) 0;
+}
+
+/* =============================
+   Input Container & Controls
+   ============================= */
+.input-container {
+  display: flex;
+  margin-top: 1rem;
+}
+
+#user-message {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius-base);
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+#user-message:focus {
+  outline: none;
+  border-color: var(--bubble-bg-user);
+}
+.input-container button {
+  margin-left: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bubble-bg-user);
+  color: var(--color-user-text);
+  border: none;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.input-container button:hover {
+  background-color: #2563eb;
+}
+
+/* =============================
+   Progress Bar
+   ============================= */
+#progressBar {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: calc(var(--radius-base) / 2);
+  background-color: #e5e7eb;
+  overflow: hidden;
+}
+#progressBar::-webkit-progress-bar {
+  background-color: #e5e7eb;
+}
+#progressBar::-webkit-progress-value,
+#progressBar::-moz-progress-bar {
+  background-color: var(--bubble-bg-user);
+}
+
+/* =============================
+   Back to Top Button
+   ============================= */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--bubble-bg-user);
+  color: var(--color-user-text);
+  padding: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* =============================
+   Dark Mode Overrides
+   ============================= */
+.dark {
+  --bg-light: #1f2937;
+  --bubble-bg-bot: #374151;
+  --color-bot-text: #e5e7eb;
+}
+.dark #user-message {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+.dark .input-container button,
+.dark #back-to-top {
+  background-color: var(--bubble-bg-user);
+}
+.dark .input-container button:hover,
+.dark #back-to-top:hover {
+  background-color: #2563eb;
+}
+
+/* =============================
+   Responsive Adjustments
+   ============================= */
+@media (max-width: 320px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  .grid { gap: 1.5rem; }
+  .input-container { flex-direction: column; }
+  .input-container button {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  section { padding-left: 3rem; padding-right: 3rem; }
+}
