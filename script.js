@@ -258,3 +258,209 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+ /********* Notice Modal Handling **********/
+      (function() {
+        const noticeModal = document.getElementById("notice-modal");
+        const noticeYesBtn = document.getElementById("notice-yes-btn");
+        noticeYesBtn.addEventListener("click", () => {
+          noticeModal.style.transition = "opacity 0.5s ease-out";
+          noticeModal.style.opacity = 0;
+          setTimeout(() => { noticeModal.style.display = "none"; }, 500);
+        });
+      })();
+
+      /********* Chatbot Interaction Logic **********/
+      function sendMessage() {
+        const inputField = document.getElementById("user-message");
+        const message = inputField.value.trim();
+        if (!message) return;
+        const chatOutput = document.getElementById("chat-output");
+        inputField.value = "";
+
+        // Create user message bubble
+        const userBubble = document.createElement("p");
+        userBubble.style.textAlign = "right";
+        userBubble.style.backgroundColor = "#007aff";
+        userBubble.style.color = "#fff";
+        userBubble.style.padding = "10px 15px";
+        userBubble.style.margin = "10px 0";
+        userBubble.style.borderRadius = "20px 20px 20px 0";
+        userBubble.textContent = message;
+        chatOutput.appendChild(userBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+
+        // Check for secret trigger: "space game"  🛸
+        if (message.toLowerCase() === "space game") {
+          setTimeout(() => {
+            window.open("https://kvnbbg.github.io/Underconstruction-Screen-Space-theme/", "_blank");
+          }, 500);
+          addBotMessage("Secret trigger activated! Opening game link...🛸 ");
+          return;
+        }
+
+        // Basic responses for common queries 🛸
+        if (message.toLowerCase().includes("about")) {
+          addBotMessage("I began my journey at STUDI and now work as a freelance developer creating projects.");
+        } else if (message.toLowerCase().includes("project")) {
+          addBotMessage("Check out my projects on my portfolio and GitHub. Visit my blog at https://kvnbbg.fr for more insights!");
+        } else if (message.toLowerCase().includes("github")) {
+          addBotMessage("My GitHub profile: https://github.com/kvnbbg");
+        } else if (message.toLowerCase().includes("blog")) {
+          addBotMessage("Visit my blog here: https://kvnbbg.fr");
+        } else {
+          showLoadingAnimation();
+          setTimeout(() => {
+            hideLoadingAnimation();
+            addBotMessage("I'm continuously learning and evolving. Ask me more about my work, type 'about'  or type 'space game' for a surprise! 🛸");
+          }, 2000);
+        }
+      }
+
+      function addBotMessage(text) {
+        const chatOutput = document.getElementById("chat-output");
+        const botBubble = document.createElement("p");
+        botBubble.style.textAlign = "left";
+        botBubble.style.backgroundColor = "#e5e5ea";
+        botBubble.style.color = "#000";
+        botBubble.style.padding = "10px 15px";
+        botBubble.style.margin = "10px 0";
+        botBubble.style.borderRadius = "20px 20px 0 20px";
+        botBubble.textContent = text;
+        chatOutput.appendChild(botBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+      }
+
+      function showLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "flex";
+      }
+      function hideLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "none";
+      }
+
+      /********* Engine Loop for Continuous Updates **********/
+      let progress = 0;
+      function updateProgress() {
+        if (progress < 20) {
+          progress += 0.2;
+        } else {
+          progress = 0;
+        }
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+          progressBar.value = progress;
+          const colorFactor = Math.sin(progress * Math.PI / 20);
+          const energyColor = `rgb(${76 + colorFactor * 50}, ${175 + colorFactor * 80}, 50)`;
+          progressBar.style.backgroundColor = energyColor;
+          progressBar.style.setProperty('--glow-color', energyColor);
+        }
+      }
+      function engineLoop() {
+        updateProgress();
+        requestAnimationFrame(engineLoop);
+      }
+      engineLoop();
+        // Render projects
+    const projectsContainer = document.getElementById('projects-container');
+    const projectsHTML = projects.map(project => `
+      <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2">${project.title}</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">${project.description}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${project.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">${tag}</span>`).join('')}
+          </div>
+          <a href="${project.link}" class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium">
+            View project
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      `).join('');
+    
+    projectsContainer.innerHTML = projectsHTML;
+    
+    // Render skills
+    const skillsContainer = document.getElementById('skills-container');
+    const skillsHTML = skills.map(skill => `
+      <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm card-hover">
+        <i class="${skill.icon} ${skill.color} text-4xl mb-2"></i>
+        <span class="font-medium">${skill.name}</span>
+      </div>
+    `).join('');
+    
+    skillsContainer.innerHTML = skillsHTML;
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved theme preference or use system preference
+    const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('hidden');
+      } else {
+        backToTopButton.classList.add('hidden');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Mobile menu toggle
+    document.querySelectorAll('[data-hs-overlay]').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const target = document.querySelector(toggle.getAttribute('data-hs-overlay'));
+        target.classList.toggle('hidden');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-fade-in');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-fade-in');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on page load
