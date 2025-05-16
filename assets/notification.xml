@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notifications>
+  <notification>
+    <visual>
+      <!-- Choose one of the Tile templates: https://docs.microsoft.com/en-us/windows/uwp/design/shell/tiles-and-notifications/tiles-schema -->
+      <binding template="TileWide310x150Text01">
+        <text id="1">Check out my latest project!</text>
+      </binding>
+      <binding template="TileSquare150x150Text04">
+        <text id="1">New work live →</text>
+      </binding>
+    </visual>
+  </notification>
+</notifications>
