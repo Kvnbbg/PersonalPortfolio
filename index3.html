@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <!-- Responsive & Mobile Optimized -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kvnbbg-creations.io" />
+
+  <!-- DNS Prefetch & Preconnect for External Resources -->
+  <link rel="dns-prefetch" href="//kvnbbg.fr" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Title -->
+  <title>Creations & Portfolio of Kevin Marville</title>
+
+  <!-- SEO Meta Tags -->
+  <meta
+    name="description"
+    content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects for 2025. Discover cutting-edge web development, creative digital solutions, and a secret game trigger."
+  />
+  <meta
+    name="keywords"
+    content="Kevin Marville, Interactive Chatbot, Modern Portfolio, 2025 Web Design, Freelance Developer, Digital Solutions, Innovative Projects, Chatbot, Web Development, Digital Creation"
+  />
+  <meta name="author" content="Kevin Marville" />
+
+  <!-- Cross-Platform & Progressive Web App Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Icons & Favicons (Primary URLs with fallback support) -->
+  <!-- Primary paths now use '/assets/f/' -->
+  <link id="appleTouchIcon" rel="apple-touch-icon" sizes="180x180" href="https://kvnbbg-creations.io/assets/f/apple-touch-icon.png" />
+  <link id="favicon32" rel="icon" type="image/png" sizes="32x32" href="https://kvnbbg-creations.io/assets/f/favicon-32x32.png" />
+  <link id="favicon16" rel="icon" type="image/png" sizes="16x16" href="https://kvnbbg-creations.io/assets/f/favicon-16x16.png" />
+  <link id="faviconIco" rel="shortcut icon" href="https://kvnbbg-creations.io/assets/f/favicon.ico" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta id="browserconfig" name="msapplication-config" content="https://kvnbbg-creations.io/assets/browserconfig.xml" />
+
+  <!-- Web App Manifest for PWA capabilities -->
+  <!-- Fallback chain: first online, then local relative path -->
+  <link id="webManifest" rel="manifest" href="https://kvnbbg-creations.io/assets/site.webmanifest" />
+
+  <!-- Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="kvnbbg-creations.io - Modern 2025 Interactive Chatbot &amp; Portfolio" />
+  <meta property="og:description" content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects for 2025." />
+  <meta id="ogImage" property="og:image" content="https://kvnbbg-creations.io/assets/f/og-image.jpg" />
+  <meta property="og:url" content="https://kvnbbg-creations.io" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="kvnbbg-creations.io - Modern 2025 Interactive Chatbot &amp; Portfolio" />
+  <meta name="twitter:description" content="Explore kvnbbg-creations.io, a modern interactive chatbot and portfolio showcasing Kevin Marville's innovative freelance projects for 2025." />
+  <meta id="twitterImage" name="twitter:image" content="https://kvnbbg-creations.io/assets/f/twitter-og-image.jpg" />
+
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Kevin Marville",
+    "url": "https://kvnbbg-creations.io",
+    "sameAs": [
+      "https://github.com/kvnbbg",
+      "https://www.linkedin.com/in/kevinmarville",
+      "https://twitter.com/techandstream",
+      "https://threads.net/@techandstream",
+      "https://kvnbbg.fr"
+    ],
+    "jobTitle": "Freelance Web Developer & Digital Creator",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "kvnbbg-creations.io"
+    },
+    "image": "https://kvnbbg-creations.io/assets/f/profile-image.jpg"
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload CSS (Advanced Performance Optimization) -->
+  <link rel="preload" href="./assets/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="./assets/style.css">
+  </noscript>
+
+  <!-- Service Worker Registration for PWA (Advanced Inclusion) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('ServiceWorker registration successful with scope:', registration.scope))
+          .catch(error => console.error('ServiceWorker registration failed:', error));
+      });
+    }
+  </script>
+
+  <!-- Fun Developer Easter Egg -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log(
+        "%c🚀 Hey there, rockstar coder! 🚀\n\nRemember: Every bug you squash is a step closer to legendary status. Keep on shining, keep on smiling, and may your code always compile on the first try! 🍀💻✨\n\nStay awesome and code on! 😎",
+        "color: #222; background: #f0f0f0; padding: 12px; font-size: 16px; border: 2px dashed #222; border-radius: 8px;"
+      );
+    });
+  </script>
+
+  <!-- Advanced Analytics / Tag Manager Inclusion (Placeholder) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script>
+  -->
+
+  <!--
+    Asset Checker Notice:
+      - Always check the licensing terms before using images or icons, even if they are marked as "free."
+      - Some platforms require attribution for free usage.
+      - Avoid using copyrighted material without proper authorization.
+
+    Recommended Free Resources:
+      Icons:
+        1. FontAwesome: https://fontawesome.com/
+        2. Flaticon: https://www.flaticon.com/
+        3. IconFinder: https://www.iconfinder.com/free_icons
+        4. Icons8: https://icons8.com/
+        5. The Noun Project: https://thenounproject.com/
+        6. Material Icons: https://fonts.google.com/icons
+        7. Bootstrap Icons: https://icons.getbootstrap.com/
+        8. Remix Icon: https://remixicon.com/
+        9. Hero Icons: https://heroicons.com/
+        10. Eva Icons: https://akveo.github.io/eva-icons/
+
+      Images:
+        1. Unsplash: https://unsplash.com/
+        2. Pexels: https://www.pexels.com/
+        3. Pixabay: https://www.pixabay.com/
+        4. Freepik: https://www.freepik.com/
+        5. Burst: https://burst.shopify.com/
+        6. StockSnap: https://stocksnap.io/
+        7. RawPixel: https://www.rawpixel.com/
+        8. Reshot: https://www.reshot.com/
+        9. ISO Republic: https://isorepublic.com/
+       10. Life of Pix: https://www.lifeofpix.com/
+  -->
+
+  <!-- Improved Asset Checker Script -->
+  <script>
+    // Using modern async/await syntax for clarity and robustness.
+    (() => {
+      const isImageAsset = url => /\.(png|jpg|jpeg|gif|ico)$/i.test(url);
+
+      // Returns a promise that resolves if the asset loads successfully.
+      const checkAsset = (url, element) => {
+        return new Promise((resolve, reject) => {
+          if (isImageAsset(url)) {
+            const img = new Image();
+            img.onload = () => resolve(url);
+            img.onerror = () => reject(new Error(`Image failed: ${url}`));
+            img.src = url;
+          } else {
+            // For non-image assets, perform a HEAD request (CORS dependent)
+            fetch(url, { method: 'HEAD' })
+              .then(response => response.ok ? resolve(url) : reject(new Error(`HEAD failed: ${url}`)))
+              .catch(() => reject(new Error(`Fetch failed: ${url}`)));
+          }
+        });
+      };
+
+      // Iterates through the URL list until a valid asset is found.
+      const tryAssetUrls = async (urls, element) => {
+        for (const url of urls) {
+          try {
+            const loadedUrl = await checkAsset(url, element);
+            // Update element attribute based on its tag type.
+            if (element.tagName === "LINK") {
+              element.href = loadedUrl;
+            } else if (element.tagName === "META") {
+              element.content = loadedUrl;
+            }
+            console.log(`Asset loaded successfully: ${loadedUrl}`);
+            return;
+          } catch (error) {
+            console.warn(error.message);
+          }
+        }
+        console.error("No valid asset found for element:", element);
+      };
+
+      // Define asset fallback chains.
+      const assetsToCheck = [
+        {
+          id: "appleTouchIcon",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/apple-touch-icon.png",
+            "https://kvnbbg-creations.io/assets/materials/apple-touch-icon.png",
+            "https://source.unsplash.com/random/180x180/?icon",
+            "https://picsum.photos/180/180"
+          ]
+        },
+        {
+          id: "favicon32",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon-32x32.png",
+            "https://kvnbbg-creations.io/assets/materials/favicon-32x32.png",
+            "https://source.unsplash.com/random/32x32/?icon",
+            "https://picsum.photos/32/32"
+          ]
+        },
+        {
+          id: "favicon16",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon-16x16.png",
+            "https://kvnbbg-creations.io/assets/materials/favicon-16x16.png",
+            "https://source.unsplash.com/random/16x16/?icon",
+            "https://picsum.photos/16/16"
+          ]
+        },
+        {
+          id: "faviconIco",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/favicon.ico",
+            "https://kvnbbg-creations.io/assets/materials/favicon.ico",
+            "https://source.unsplash.com/random/16x16/?icon",
+            "https://picsum.photos/16/16"
+          ]
+        },
+        {
+          id: "browserconfig",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/browserconfig.xml",
+            "./assets/materials/browserconfig.xml"
+          ]
+        },
+        {
+          id: "webManifest",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/site.webmanifest",
+            "./assets/site.webmanifest"
+          ]
+        },
+        {
+          id: "ogImage",
+          // Updated fallback order:
+          fallbackChain: [
+            "https://picsum.photos/1200/630",
+            "https://source.unsplash.com/random/1200x630/?landscape",
+            "https://kvnbbg-creations.io/assets/f/og-image.jpg",
+            "https://kvnbbg-creations.io/assets/materials/og-image.jpg"
+          ]
+        },
+        {
+          id: "twitterImage",
+          fallbackChain: [
+            "https://kvnbbg-creations.io/assets/f/twitter-og-image.jpg",
+            "https://kvnbbg-creations.io/assets/materials/twitter-og-image.jpg",
+            "https://source.unsplash.com/random/1200x600/?technology",
+            "https://picsum.photos/1200/600"
+          ]
+        }
+      ];
+
+      // When DOM is ready, attempt to load each asset.
+      document.addEventListener("DOMContentLoaded", () => {
+        assetsToCheck.forEach(item => {
+          const element = document.getElementById(item.id);
+          if (element) {
+            tryAssetUrls(item.fallbackChain, element);
+          }
+        });
+      });
+    })();
+  </script>
+</head>
+
+  <body class="active-en">
+    <!-- Notice Modal: Story & Call-to-Action -->
+    <div id="notice-modal">
+      <div class="notice-content">
+        <h2>Welcome to My Modern Interactive Chatbot!</h2>
+        <p>
+          This is my very first creation for 2025 as a freelance developer. Once a student at <strong>STUDI</strong>, I have now embraced the freelance life and am excited to share my innovative and interactive experiences.
+        </p>
+        <p>
+          My chatbot not only answers questions about my background, projects, GitHub, and my blog (<a href="https://kvnbbg.fr" target="_blank">kvnbbg.fr</a>), it also hides a secret feature. Simply type <strong>"source game"</strong> to unlock a special game link!
+        </p>
+        <p>Are you ready to explore? Click “Yes, I Understand” to continue.</p>
+        <button id="notice-yes-btn">Yes, I Understand</button>
+      </div>
+    </div>
+
+    <!-- Header with Matrix Text Effect -->
+    <header>
+      <h1>
+        <span class="matrix-text" data-text="Creations.io">
+          <span>Creations.io</span>
+        </span>
+      </h1>
+      <p>My Portfolio & Interactive Chatbot</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><a href="#chatbot">Chat</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- About Section -->
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <p>
+          I am Kevin Marville—a freelance web developer and digital creator passionate about innovative design and technology. My journey began at STUDI, and today I proudly create cutting‑edge interactive experiences.
+        </p>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" aria-labelledby="services-heading">
+        <h2 id="services-heading">Services</h2>
+        <ul>
+          <li>Front End Development</li>
+          <li>Back End Development</li>
+          <li>Digital & Metaverse Creation</li>
+        </ul>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+        <article>
+          <h3>Dynamic Rain Simulator 2.0</h3>
+          <p>
+            A simulation project inspired by the beauty of nature and modern technology. Experience dynamic visuals and interactive elements that bring the project to life.
+          </p>
+        </article>
+        <article>
+          <h3>App Store – Portfolio</h3>
+          <p>
+            Discover a curated collection of innovative projects and digital creations showcased in a sleek, modern interface.
+          </p>
+        </article>
+      </section>
+
+      <!-- Progress Section (Engine Loop Element
+      <section id="progress" aria-labelledby="progress-heading">
+        <h2 id="progress-heading" class="pixel-effect">Site Under Construction Effect</h2>
+        <div class="progress-container">
+          <progress id="progressBar" class="under-construction-image energy-effect" value="0" max="100" aria-label="Website under construction"></progress>
+        </div>
+        <p class="centered-text pixel-effect">Innovative Solutions in Motion</p>
+      </section>
+-->
+
+      <!-- Chatbot Section -->
+      <section id="chatbot" aria-labelledby="chatbot-heading">
+        <h2 id="chatbot-heading">Interactive Chatbot</h2>
+        <div class="chatbot" role="region" aria-live="polite">
+          <div id="chat-output" class="terminal-output">
+            <p>
+              Welcome to my interactive chatbot! Ask me about my background, projects, GitHub, or my blog.
+              <br /><em>(Tip: Type <strong><u>space game</u></strong> to play!)</em>
+            </p>
+          </div>
+          <div id="loading-animation" class="loading-animation" style="display: none;">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="input-container">
+            <input
+              type="text"
+              id="user-message"
+              placeholder="Type your message here..."
+              onkeydown="if(event.key==='Enter') sendMessage();"
+            />
+            <button onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+<!-- Contact Section -->
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="contact-container">
+    <h2 id="contact-heading" class="section-heading">Get in Touch</h2>
+    
+    <form id="contact-form" class="contact-form" aria-label="Contact form">
+      <div class="form-group">
+        <label for="name" class="form-label">Full Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="form-input"
+          placeholder="John Doe"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="form-input"
+          placeholder="john@example.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          class="form-textarea"
+          placeholder="How can I help you?"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">
+        <span class="button-text">Send Message</span>
+        <span class="button-icon" aria-hidden="true">→</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+.contact-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #0984e3;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2d3436;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #0984e3;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0984e3;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #0873c4;
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover .button-icon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+</style>
+    </main>
+
+    <!-- Footer: Social Links & Copyright -->
+    <footer class="py-5 bg-dark">
+      <div class="container text-center">
+        <div class="social-links mb-3">
+          <a href="https://kvnbbg.fr" target="_blank"><i class="fas fa-rss"></i> Blog</a>
+          <a href="https://www.instagram.com/techandstream" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://www.threads.net/@techandstream" target="_blank"><i class="fas fa-comment-dots"></i> Threads</a>
+          <a href="https://x.com/techandstream" target="_blank"><i class="fab fa-twitter"></i> X</a>
+          <a href="https://www.youtube.com/techandstream" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+          <a href="https://www.facebook.com/techandstream" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+        <p class="m-0 text-white">&copy; 2025 Kevin Marville. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      /********* Notice Modal Handling **********/
+      (function() {
+        const noticeModal = document.getElementById("notice-modal");
+        const noticeYesBtn = document.getElementById("notice-yes-btn");
+        noticeYesBtn.addEventListener("click", () => {
+          noticeModal.style.transition = "opacity 0.5s ease-out";
+          noticeModal.style.opacity = 0;
+          setTimeout(() => { noticeModal.style.display = "none"; }, 500);
+        });
+      })();
+
+      /********* Chatbot Interaction Logic **********/
+      function sendMessage() {
+        const inputField = document.getElementById("user-message");
+        const message = inputField.value.trim();
+        if (!message) return;
+        const chatOutput = document.getElementById("chat-output");
+        inputField.value = "";
+
+        // Create user message bubble
+        const userBubble = document.createElement("p");
+        userBubble.style.textAlign = "right";
+        userBubble.style.backgroundColor = "#007aff";
+        userBubble.style.color = "#fff";
+        userBubble.style.padding = "10px 15px";
+        userBubble.style.margin = "10px 0";
+        userBubble.style.borderRadius = "20px 20px 20px 0";
+        userBubble.textContent = message;
+        chatOutput.appendChild(userBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+
+        // Check for secret trigger: "space game"  🛸
+        if (message.toLowerCase() === "space game") {
+          setTimeout(() => {
+            window.open("https://kvnbbg.github.io/Underconstruction-Screen-Space-theme/", "_blank");
+          }, 500);
+          addBotMessage("Secret trigger activated! Opening game link...🛸 ");
+          return;
+        }
+
+        // Basic responses for common queries 🛸
+        if (message.toLowerCase().includes("about")) {
+          addBotMessage("I began my journey at STUDI and now work as a freelance developer creating projects.");
+        } else if (message.toLowerCase().includes("project")) {
+          addBotMessage("Check out my projects on my portfolio and GitHub. Visit my blog at https://kvnbbg.fr for more insights!");
+        } else if (message.toLowerCase().includes("github")) {
+          addBotMessage("My GitHub profile: https://github.com/kvnbbg");
+        } else if (message.toLowerCase().includes("blog")) {
+          addBotMessage("Visit my blog here: https://kvnbbg.fr");
+        } else {
+          showLoadingAnimation();
+          setTimeout(() => {
+            hideLoadingAnimation();
+            addBotMessage("I'm continuously learning and evolving. Ask me more about my work, type 'about'  or type 'space game' for a surprise! 🛸");
+          }, 2000);
+        }
+      }
+
+      function addBotMessage(text) {
+        const chatOutput = document.getElementById("chat-output");
+        const botBubble = document.createElement("p");
+        botBubble.style.textAlign = "left";
+        botBubble.style.backgroundColor = "#e5e5ea";
+        botBubble.style.color = "#000";
+        botBubble.style.padding = "10px 15px";
+        botBubble.style.margin = "10px 0";
+        botBubble.style.borderRadius = "20px 20px 0 20px";
+        botBubble.textContent = text;
+        chatOutput.appendChild(botBubble);
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+      }
+
+      function showLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "flex";
+      }
+      function hideLoadingAnimation() {
+        document.getElementById("loading-animation").style.display = "none";
+      }
+
+      /********* Engine Loop for Continuous Updates **********/
+      let progress = 0;
+      function updateProgress() {
+        if (progress < 20) {
+          progress += 0.2;
+        } else {
+          progress = 0;
+        }
+        const progressBar = document.getElementById("progressBar");
+        if (progressBar) {
+          progressBar.value = progress;
+          const colorFactor = Math.sin(progress * Math.PI / 20);
+          const energyColor = `rgb(${76 + colorFactor * 50}, ${175 + colorFactor * 80}, 50)`;
+          progressBar.style.backgroundColor = energyColor;
+          progressBar.style.setProperty('--glow-color', energyColor);
+        }
+      }
+      function engineLoop() {
+        updateProgress();
+        requestAnimationFrame(engineLoop);
+      }
+      engineLoop();
+    </script>
+  </body>
+</html>
