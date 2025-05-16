@@ -2,6 +2,437 @@
       scroll-behavior: smooth;
       font-size: 16px;
     }
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+:root {
+  /* Colors */
+  --primary-color: #0056b3;
+  --secondary-color: #495057;
+  --background-color: #f0f0f0;
+  --text-color: #212121;
+  --accent-color: #ffc107;
+  /* Kawaii accent */
+  --kawaii-accent: #ff99cc;
+  
+  /* Typography */
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-kawaii: 'M PLUS Rounded 1c', sans-serif;
+  
+  /* Layout */
+  --transition-speed: 0.3s;
+  --border-radius: 20px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--font-family-base);
+  color: var(--text-color);
+  background: linear-gradient(135deg, #eeeeee, #dddddd);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Links (Animated Underline)
+   ========================================================================== */
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-speed) ease;
+}
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--kawaii-accent);
+  left: 0;
+  bottom: -3px;
+  transition: width var(--transition-speed) ease;
+}
+a:hover::after,
+a:focus::after {
+  width: 100%;
+}
+a:hover,
+a:focus {
+  color: var(--accent-color);
+}
+
+/* ==========================================================================
+   Header & Matrix Text Effect
+   ========================================================================== */
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  font-family: var(--font-family-kawaii);
+}
+.matrix-text {
+  position: relative;
+  display: inline-block;
+  color: #00ff00;
+  overflow: hidden;
+}
+.matrix-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(0, 255, 0, 0.2);
+  white-space: nowrap;
+  animation: matrixRain 5s linear infinite;
+}
+.matrix-text span {
+  display: inline-block;
+  animation: matrixRain 5s linear infinite, characterChange 1.5s infinite;
+}
+@keyframes matrixRain {
+  0% { transform: translateY(-100%); opacity: 0.2; }
+  50% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0.2; }
+}
+@keyframes characterChange {
+  0%, 100% { content: attr(data-text); }
+  50% { content: "X"; }
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+  background-color: var(--accent-color);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+nav a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+nav a:hover,
+nav a:focus {
+  background-color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   Main Container & Sections
+   ========================================================================== */
+.container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 2rem;
+}
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #0984e3;
+}
+.secure-link {
+  color: #2c3e50;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.secure-link:hover {
+  border-color: #3498db;
+}
+
+.project-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-features {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.project-features li {
+  margin-bottom: 0.5rem;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+/* Profile Section Styles */
+.profile-section {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
+}
+
+.profile-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.profile-alias {
+  color: #0984e3;
+  font-weight: 500;
+}
+
+.profile-tagline {
+  font-size: 1.1rem;
+  color: #636e72;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.expertise-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.expertise-item:hover {
+  transform: translateY(-5px);
+}
+
+.philosophy-quote {
+  border-left: 4px solid #0984e3;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Services Section Styles */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: #0984e3;
+  margin-bottom: 1rem;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.tech-stack li {
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+  
+  .profile-name {
+    font-size: 1.75rem;
+  }
+}
+.universe-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.dimension-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.dimension-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dimension-icon {
+  font-size: 1.5rem;
+  color: #0984e3;
+}
+
+.music-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.music-platform {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.music-platform:hover {
+  transform: translateY(-3px);
+}
+
+.soundcloud { background: #ff8800; color: white; }
+.spotify { background: #1db954; color: white; }
+
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #2d3436;
+  transition: transform 0.3s ease;
+  font-size: 1.25rem;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  color: #0984e3;
+}
+
+.life-factor {
+  position: relative;
+  padding: 1.5rem;
+background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.life-factor p {
+  margin: 0.75rem 0;
+}
+
+.learning-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.callout-icon {
+  font-size: 2.5rem;
+  color: #2d3436;
+}
+
+@media (max-width: 768px) {
+  .universe-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .learning-callout {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
     .gradient-text {
       background-clip: text;
@@ -127,3 +558,282 @@
         width: 100%;
       }
     }
+
+/* ==========================================================================
+   Contact Design & Forms
+   ========================================================================== */
+.contact-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2d3436;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #0984e3;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0984e3;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #0873c4;
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover .button-icon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+}
+/* ==========================================================================
+   Chatbot Interface
+   ========================================================================== */
+.chatbot {
+  background-color: #000;
+  color: #33ff33;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: monospace;
+  box-shadow: var(--shadow);
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(0, 255, 153, 0.3); }
+  to { box-shadow: 0 0 20px rgba(0, 255, 153, 0.8); }
+}
+.terminal-output {
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 2px solid #33ff33;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.loading-animation {
+  display: flex;
+  gap: 5px;
+}
+.loading-animation span {
+  width: 8px;
+  height: 8px;
+  background-color: #33ff33;
+  border-radius: 50%;
+  animation: blink 1.2s infinite both;
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+.input-container {
+  display: flex;
+  gap: 10px;
+}
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+}
+.input-container button {
+  padding: 10px 20px;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.input-container button:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+.input-container button:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   Notice Modal (Story & Call-to-Action)
+   ========================================================================== */
+#notice-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+#notice-modal .notice-content {
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  max-width: 90%;
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: popIn 0.5s ease-out;
+}
+#notice-modal button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+#notice-modal button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================================
+   Footer & Bottom Section
+   ========================================================================== */
+footer {
+  background: linear-gradient(135deg, #333, #444);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+footer .social-links a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+footer .social-links a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--kawaii-accent);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+footer .social-links a:hover::before {
+  width: 100%;
+}
+footer .social-links a:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+footer p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Pixel Game–Inspired Text Effect
+   ========================================================================== */
+.pixel-effect {
+  font-family: 'Press Start 2P', cursive; /* Ensure you load this font via Google Fonts */
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--kawaii-accent);
+  position: relative;
+  animation: pixelGlitch 3s infinite;
+}
+@keyframes pixelGlitch {
+  0% { transform: translate(0); filter: blur(0); }
+  10% { transform: translate(-2px, 2px); filter: blur(1px); }
+  20% { transform: translate(2px, -2px); filter: blur(0); }
+  30% { transform: translate(-1px, 1px) scale(1.02); }
+  40% { transform: translate(1px, -1px) scale(0.98); }
+  50% { transform: translate(0); filter: blur(0); }
+  60% { transform: translate(1px, 2px) scale(1.01); filter: blur(1px); }
+  70% { transform: translate(-1px, -2px) scale(0.99); }
+  80% { transform: translate(2px, 1px) scale(1.03); filter: blur(0); }
+  90% { transform: translate(-2px, -1px) scale(0.97); }
+  100% { transform: translate(0); }
+}
+
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; }
+  .container { padding: 1rem; }
+  .input-container button { font-size: 0.9rem; padding: 8px 16px; }
+  footer { padding: 1rem; }
+}
+@media (min-width: 1200px) {
+  .container { max-width: 1200px; }
+}
+
