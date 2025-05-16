@@ -1010,7 +1010,283 @@
           </div>
         </div>
       </section>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+          Hi, I'm <span class="gradient-text">Kevin Marville</span>
+        </h1>
+        <h2 class="text-2xl sm:text-3xl text-gray-600 dark:text-gray-400">
+          Creative Developer & Designer
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          I build beautiful, functional digital experiences that make an impact.
+        </p>
+        <div class="flex space-x-4 pt-4">
+          <a href="#contact" class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors">
+            Get in touch
+          </a>
+          <a href="#projects" class="px-6 py-3 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium rounded-lg transition-colors">
+            View my work
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="w-full h-80 md:h-96 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-2xl overflow-hidden flex items-center justify-center">
+          <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+               alt="Developer working" 
+               class="w-full h-full object-cover opacity-90">
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-500 rounded-full opacity-20 animate-float"></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">About Me</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl mx-auto">Get to know the person behind the code</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <p class="text-lg">
+          I'm a passionate freelance developer with over 5 years of experience creating digital solutions that blend aesthetics with functionality.
+        </p>
+        <p class="text-lg">
+          My journey in tech started when I was just 14, tinkering with HTML and CSS to customize my MySpace profile (yes, I'm dating myself here). That spark of creativity turned into a full-blown career that I'm incredibly grateful for.
+        </p>
+        <p class="text-lg">
+          When I'm not coding, you can find me exploring new coffee shops, playing my guitar, or getting lost in a good sci-fi book.
+        </p>
+        
+        <div class="pt-4">
+          <a href="#" class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium">
+            Download Resume
+            <i class="fas fa-arrow-down ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Clean Code</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">I write maintainable, efficient code that stands the test of time.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Beautiful Design</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">I create interfaces that are as pleasing to use as they are to look at.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Fast Performance</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">I optimize every project for speed and smooth user experience.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Creative Solutions</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">I approach problems with innovation and out-of-the-box thinking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">Featured Projects</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2">A selection of my recent work</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project data array -->
+      <script>
+        const projects = [
+          {
+            title: "Space Game Trigger",
+            description: "An immersive space exploration game with realistic physics and stunning visuals.",
+            tags: ["JavaScript", "Three.js", "WebGL"],
+            image: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+            link: "#"
+          },
+          {
+            title: "Interactive Chatbot",
+            description: "AI-powered chatbot with natural language processing and customizable personality.",
+            tags: ["Node.js", "NLP", "WebSockets"],
+            image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80",
+            link: "#"
+          },
+          {
+            title: "Portfolio Platform",
+            description: "Modern portfolio builder for creatives with drag-and-drop interface.",
+            tags: ["React", "Firebase", "TailwindCSS"],
+            image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            link: "#"
+          },
+          {
+            title: "E-commerce Dashboard",
+            description: "Analytics dashboard for online stores with real-time data visualization.",
+            tags: ["Vue.js", "D3.js", "REST API"],
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            link: "#"
+          },
+          {
+            title: "Health Tracker App",
+            description: "Mobile-first application for tracking fitness and nutrition goals.",
+            tags: ["React Native", "GraphQL", "MongoDB"],
+            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            link: "#"
+          },
+          {
+            title: "Digital Art Gallery",
+            description: "Virtual exhibition space for digital artists with 3D room navigation.",
+            tags: ["Three.js", "WebXR", "Node.js"],
+            image: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1466&q=80",
+            link: "#"
+          }
+        ];
+      </script>
+      
+      <!-- Projects will be rendered here -->
+      <div id="projects-container" class="col-span-1 md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">My Skills</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2">Technologies I work with</p>
+    </div>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <script>
+        const skills = [
+          { name: "HTML5", icon: "fab fa-html5", color: "text-orange-500" },
+          { name: "CSS3", icon: "fab fa-css3-alt", color: "text-blue-500" },
+          { name: "JavaScript", icon: "fab fa-js", color: "text-yellow-500" },
+          { name: "React", icon: "fab fa-react", color: "text-blue-400" },
+          { name: "Vue.js", icon: "fab fa-vuejs", color: "text-green-500" },
+          { name: "Node.js", icon: "fab fa-node-js", color: "text-green-600" },
+          { name: "Python", icon: "fab fa-python", color: "text-blue-600" },
+          { name: "Git", icon: "fab fa-git-alt", color: "text-orange-600" },
+          { name: "Docker", icon: "fab fa-docker", color: "text-blue-500" },
+          { name: "AWS", icon: "fab fa-aws", color: "text-orange-400" },
+          { name: "Figma", icon: "fab fa-figma", color: "text-purple-500" },
+          { name: "Sass", icon: "fab fa-sass", color: "text-pink-500" }
+        ];
+      </script>
+      
+      <div id="skills-container" class="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">Get In Touch</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2">Let's work together</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="space-y-6">
+        <h3 class="text-xl font-semibold">Contact Information</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+        </p>
+        
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4">
+            <div class="mt-1 text-primary-500 dark:text-primary-400">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Email</h4>
+              <a href="mailto:contact@kvnbbg.fr" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">contact@kvnbbg.fr</a>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="mt-1 text-primary-500 dark:text-primary-400">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Location</h4>
+              <p class="text-gray-600 dark:text-gray-400">Paris, France</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="mt-1 text-primary-500 dark:text-primary-400">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div>
+              <h4 class="font-medium">Social</h4>
+              <div class="flex space-x-4 mt-1">
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+                  <i class="fab fa-dribbble"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+        <h3 class="text-xl font-semibold mb-6">Send me a message</h3>
+        
+        <form class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1">Name</label>
+            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors">
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">Email</label>
+            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors">
+          </div>
+          
+          <div>
+            <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors">
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors"></textarea>
+          </div>
+          
+          <button type="submit" class="w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
       <!-- Contact Section -->
 <section id="contact" class="contact-section" aria-labelledby="contact-heading">
   <div class="contact-container">
@@ -1067,9 +1343,36 @@
     </form>
   </div>
 </section>
+      
     </main>
 
-    <!-- Footer: Social Links & Copyright -->
+      <!-- Footer: Social Links & Copyright -->
+  <footer class="py-12 bg-dark px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-200 dark:border-gray-800">
+    <div class="container flex flex-col md:flex-row justify-between items-center text-center">
+      <div class="mb-6 md:mb-0">
+        <a href="#" class="text-xl font-bold gradient-text">kvnbbg-creations.io</a>
+        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm">© 2025 Kevin Marville. All rights reserved.</p>
+      </div>
+      
+      <div class="flex space-x-6 social-links mb-3">
+        
+        <a href="https://www.threads.net/@techandstream" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/in/kevinmarville" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://x.com/techandstream" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://kvnbbg.fr" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">
+          <i class="fab fa-rss"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Footer: 
     <footer class="py-5 bg-dark">
       <div class="container text-center">
         <div class="social-links mb-3">
@@ -1083,7 +1386,11 @@
         <p class="m-0 text-white">&copy; 2025 Kevin Marville. All rights reserved.</p>
       </div>
     </footer>
-
+-->
+      <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-colors hidden">
+    <i class="fas fa-arrow-up"></i>
+  </button>
     <!-- JavaScript -->
     <script>
       /********* Notice Modal Handling **********/
@@ -1187,6 +1494,111 @@
         requestAnimationFrame(engineLoop);
       }
       engineLoop();
+        // Render projects
+    const projectsContainer = document.getElementById('projects-container');
+    const projectsHTML = projects.map(project => `
+      <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2">${project.title}</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">${project.description}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${project.tags.map(tag => `<span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">${tag}</span>`).join('')}
+          </div>
+          <a href="${project.link}" class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium">
+            View project
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+
+      `).join('');
+    
+    projectsContainer.innerHTML = projectsHTML;
+    
+    // Render skills
+    const skillsContainer = document.getElementById('skills-container');
+    const skillsHTML = skills.map(skill => `
+      <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm card-hover">
+        <i class="${skill.icon} ${skill.color} text-4xl mb-2"></i>
+        <span class="font-medium">${skill.name}</span>
+      </div>
+    `).join('');
+    
+    skillsContainer.innerHTML = skillsHTML;
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Check for saved theme preference or use system preference
+    const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+    if (currentTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    
+    // Back to top button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('hidden');
+      } else {
+        backToTopButton.classList.add('hidden');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Mobile menu toggle
+    document.querySelectorAll('[data-hs-overlay]').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const target = document.querySelector(toggle.getAttribute('data-hs-overlay'));
+        target.classList.toggle('hidden');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-fade-in');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-fade-in');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on page load
     </script>
   </body>
 </html>
