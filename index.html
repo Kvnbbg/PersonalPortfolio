@@ -429,7 +429,7 @@
             </div>
           </div>
         </div>
-
+<!--
         <div class="profile-philosophy">
           <blockquote class="philosophy-quote">
             <div class="quote-icon">“</div>
@@ -437,6 +437,7 @@
             <footer class="quote-source">Iron Flame Inspiration</footer>
           </blockquote>
         </div>
+        -->
       </div>
 
       <div class="profile-social">
@@ -517,20 +518,20 @@
       <article class="dimension-card tech-dimension">
         <div class="dimension-header">
           <i class="fas fa-microchip dimension-icon"></i>
-          <h3>Technical Frontiers</h3>
+          <h3>My Technical Interest</h3>
         </div>
         <ul class="dimension-list">
           <li>
             <i class="fas fa-robot list-icon"></i>
             <div class="list-content">
-              <h4>Robotic Systems</h4>
+              <h6>Robotic Systems</h6>
               <p>Exploring ROS frameworks & autonomous navigation</p>
             </div>
           </li>
           <li>
             <i class="fas fa-cube list-icon"></i>
             <div class="list-content">
-              <h4>Systems Programming</h4>
+              <h6>Systems Programming</h6>
               <p>C++20 • Kernel Development • Embedded Systems</p>
             </div>
           </li>
@@ -580,7 +581,7 @@
 
   <div class="life-factor">
     <div class="factor-icon">🌍</div>
-    <p>Culinary Cartography<br>37 Countries Explored</p>
+    <p>Culinary Cartography<br>3 Countries Explored</p>
     <div class="social-links">
       <a href="https://www.tiktok.com/@techandstream" target="_blank" rel="noopener noreferrer" aria-label="TikTok account">
         <i class="fab fa-tiktok"></i>
@@ -600,23 +601,12 @@
 </div>
       </article>
     </div>
-
-    <!-- Continuous Learning Callout -->
-    <div class="learning-callout">
-      <i class="fas fa-brain callout-icon"></i>
-      <div class="callout-content">
-        <h4>Perpetual Education Engine</h4>
-        <p>Self-disciplined learning: 25h/week across<br>
-        Technical Journals • Research Papers • Experimental Projects</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects" aria-labelledby="projects-heading">
   <h2 id="projects-heading">Projects</h2>
-  
+  <br>
   <article itemscope itemtype="https://schema.org/SoftwareApplication">
     <h3>
       <a href="https://github.com/Kvnbbg/bookish-octo-invention/blob/main/README.md" 
@@ -701,7 +691,18 @@
       <div class="progress-card">
         <div class="progress-header">
           <i class="fas fa-rocket progress-icon"></i>
-          <span class="progress-label">Current Initiative Completion</span>
+          <span class="progress-label">
+                <!-- Continuous Learning Callout -->
+    <div class="learning-callout">
+      <i class="fas fa-brain callout-icon"></i>
+      <div class="callout-content">
+        <h4>Let see my current completion!</h4>
+        <p>Self-disciplined learner: 25h/week across<br>
+        Technical Journals • Research Papers • Experimental Projects</p>
+      </div>
+    </div>
+  </div>
+          </span>
         </div>
         <progress 
           id="progressBar" 
@@ -712,7 +713,7 @@
         ></progress>
         <div class="progress-meta">
           <span class="progress-percent">72%</span>
-          <span class="progress-update">Updated: 2024-06-20</span>
+          <span class="progress-update">Updated: 2025-05-16</span>
         </div>
       </div>
 
@@ -723,7 +724,7 @@
            rel="noopener noreferrer"
            aria-label="Visit Kevin Marville's link hub">
           <i class="fas fa-link link-icon"></i>
-          Digital Presence Hub
+          View My Digital Presence
         </a>
       </div>
     </div>
@@ -859,7 +860,7 @@
           id="name" 
           name="name" 
           class="form-input"
-          placeholder="John Doe"
+          placeholder="Kevin Marville"
           required
         >
       </div>
@@ -871,22 +872,29 @@
           id="email" 
           name="email" 
           class="form-input"
-          placeholder="john@example.com"
+          placeholder="kevin@example.com"
           required
         >
       </div>
 
       <div class="form-group">
-        <label for="message" class="form-label">Your Message</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          class="form-textarea"
-          placeholder="How can I help you?"
-          rows="5"
-          required
-        ></textarea>
-      </div>
+  <label for="message" class="form-label">
+    What can we help you with today?
+  </label>
+  <textarea
+    id="message"
+    name="message"
+    class="form-textarea w-full rounded-lg border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 p-3 resize-vertical"
+    placeholder="Feel free to share as much detail as you like—questions, feedback, or anything on your mind! How can I help you?"
+    rows="6"
+    aria-describedby="message-help"
+    required
+  ></textarea>
+  <p id="message-help" class="form-text-help text-sm text-gray-500 mt-1">
+    The more context you give us, the better we can tailor our response.
+  </p>
+</div>
+
 
       <button type="submit" class="submit-button">
         <span class="button-text">Send Message</span>
