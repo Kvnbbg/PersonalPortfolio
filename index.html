@@ -376,6 +376,20 @@
       </div>
     </div>
   </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach(el => {
+      el.addEventListener('click', () => {
+        const lang = el.getAttribute('data-lang');
+        document.querySelectorAll('[data-lang]').forEach(span => {
+          if (span.classList.contains('flag')) return;
+          span.hidden = (span.getAttribute('data-lang') !== lang);
+        });
+      });
+    });
+  });
+</script>
 
   <!-- Header -->
   <header class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
