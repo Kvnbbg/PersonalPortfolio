@@ -84,6 +84,28 @@
       position: relative;
       animation: glow 2s infinite;
     }
+.link-hub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4facfe;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 2px solid #4facfe;
+  border-radius: 30px;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.link-hub:hover {
+  background: rgba(79, 172, 254, 0.1);
+  transform: translateY(-2px);
+}
+
+.pixel-font {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 2px;
+}
 
     @keyframes glow {
       0% { box-shadow: 0 0 5px #4facfe; }
