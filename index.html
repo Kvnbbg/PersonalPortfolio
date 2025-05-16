@@ -289,20 +289,92 @@
 </head>
 
   <body class="active-en">
+
     <!-- Notice Modal: Story & Call-to-Action -->
-    <div id="notice-modal">
-      <div class="notice-content">
-        <h2>My personal portfolio!</h2>
-        <p> The computer life let me excited, to share innovations throught the internet and interactive experiences.
-        </p>
-        <p>
-          Bellow, this chatbot not only give answers, we can keep chatting throught my background, my projects, my gitHub, or my blog (<a href="https://kvnbbg.fr"  rel="noopener noreferrer" target="_blank">kvnbbg.fr</a>), it also hides a secret feature... 
-          If you want to see it, simply type <strong>"space game"</strong> to unlock a special link!
-        </p><br>
-        <p>Are you ready to try? Click “Yes, I Understand” to continue.</p>
-        <button id="notice-yes-btn">Yes, I Understand</button>
-      </div>
-    </div>
+<div id="notice-modal">
+  <!-- Language selector -->
+  <div class="language-bar" style="text-align: right; margin-bottom: .5em;">
+    <span class="flag" data-lang="en-US" style="cursor: pointer;">🇺🇸</span>
+    <span class="flag" data-lang="en-CA" style="cursor: pointer;">🇨🇦</span>
+    <span class="flag" data-lang="en-GB" style="cursor: pointer;">🇬🇧</span>
+    <span class="flag" data-lang="fr"    style="cursor: pointer;">🇫🇷</span>
+    <span class="flag" data-lang="nl"    style="cursor: pointer;">🇳🇱</span>
+    <span class="flag" data-lang="zh"    style="cursor: pointer;">🇨🇳</span>
+    <span class="flag" data-lang="ja"    style="cursor: pointer;">🇯🇵</span>
+  </div>
+
+  <!-- Warning about English-only site -->
+  <p class="warning" style="color: #b33; font-size: .9em; margin-top: 0;">
+    ⚠️ Note: this site is currently in English only.
+  </p>
+
+  <div class="notice-content">
+    <h2>
+      <span data-lang="en-US">Feel the Digital Melody!</span>
+      <span data-lang="en-CA" hidden>Feel the Digital Melody!</span>
+      <span data-lang="en-GB" hidden>Feel the Digital Melody!</span>
+      <span data-lang="fr"    hidden>Ressentez la mélodie numérique !</span>
+      <span data-lang="nl"    hidden>Voel de digitale melodie !</span>
+      <span data-lang="zh"    hidden>感受数码旋律！</span>
+      <span data-lang="ja"    hidden>デジタルメロディーを感じてください！</span>
+    </h2>
+
+    <p>
+      <span data-lang="en-US">Let each keystroke strum fresh ideas and spark vibrant interactions.</span>
+      <span data-lang="en-CA" hidden>Let each keystroke strum fresh ideas and spark vibrant interactions.</span>
+      <span data-lang="en-GB" hidden>Let each keystroke strum fresh ideas and spark vibrant interactions.</span>
+      <span data-lang="fr"    hidden>Que chaque frappe de touche éveille de nouvelles idées et suscite des interactions vibrantes.</span>
+      <span data-lang="nl"    hidden>Laat elke toetsaanslag nieuwe ideeën spelen en levendige interacties ontketenen.</span>
+      <span data-lang="zh"    hidden>让每一次敲击激发新想法，点亮互动火花。</span>
+      <span data-lang="ja"    hidden>鍵を打つたびに新しいアイデアが奏でられ、生き生きとしたインタラクションが生まれます。</span>
+    </p>
+
+    <p>
+      <span data-lang="en-US">Browse my projects, roam my GitHub, or wander my blog ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ). For a hidden riff, type <strong>“space game”</strong>.</span>
+      <span data-lang="en-CA" hidden>Browse my projects, roam my GitHub, or wander my blog ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ). For a hidden riff, type <strong>“space game”</strong>.</span>
+      <span data-lang="en-GB" hidden>Browse my projects, peruse my GitHub, or wander my blog ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ). For a hidden riff, type <strong>“space game”</strong>.</span>
+      <span data-lang="fr" hidden>Parcourez mes projets, visitez mon GitHub ou explorez mon blog ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ). Tapez <strong>« space game »</strong> pour révéler le secret.</span>
+      <span data-lang="nl" hidden>Bekijk mijn projecten, verken mijn GitHub of dwaal door mijn blog ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ). Typ <strong>'space game'</strong> om het geheim te ontgrendelen.</span>
+      <span data-lang="zh" hidden>浏览我的项目，探索我的 GitHub，或漫游我的博客 ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> )。输入 <strong>“space game”</strong> 解锁秘密。</span>
+      <span data-lang="ja" hidden>私のプロジェクトを見たり、GitHubを覗いたり、ブログ ( <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer">kvnbbg.fr</a> ) を散策したりしましょう。<strong>“space game”</strong>と入力して秘密を解き明かしてください。</span>
+    </p>
+
+    <p>
+      <span data-lang="en-US">Ready to tune in? Click <strong>“Yes, I’m In!”</strong></span>
+      <span data-lang="en-CA" hidden>Ready to tune in? Click <strong>“Yes, I’m In!”</strong></span>
+      <span data-lang="en-GB" hidden>Ready to tune in? Click <strong>“Yes, I’m In!”</strong></span>
+      <span data-lang="fr"    hidden>Prêt à accorder ? Cliquez sur <strong>« Oui, je participe ! »</strong></span>
+      <span data-lang="nl"    hidden>Klaar om mee te spelen? Klik op <strong>“Ja, ik doe mee!”</strong></span>
+      <span data-lang="zh"    hidden>准备好了吗？点击 <strong>“好的，我准备好了！”</strong></span>
+      <span data-lang="ja"    hidden>準備はいいですか？<strong>「はい、参加します！」</strong>をクリックしてください。</span>
+    </p>
+
+    <button id="notice-yes-btn">
+      <span data-lang="en-US">Yes, I’m In!</span>
+      <span data-lang="en-CA" hidden>Yes, I’m In!</span>
+      <span data-lang="en-GB" hidden>Yes, I’m In!</span>
+      <span data-lang="fr"    hidden>Oui, je participe !</span>
+      <span data-lang="nl"    hidden>Ja, ik doe mee!</span>
+      <span data-lang="zh"    hidden>好的，我准备好了！</span>
+      <span data-lang="ja"    hidden>はい、参加します！</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const flags = document.querySelectorAll('.flag');
+    flags.forEach(el => {
+      el.addEventListener('click', () => {
+        const lang = el.getAttribute('data-lang');
+        document.querySelectorAll('.notice-content [data-lang]').forEach(span => {
+          span.hidden = (span.getAttribute('data-lang') !== lang);
+        });
+      });
+    });
+  });
+</script>
+
 
     <!-- Header with Matrix Text Effect -->
     <header>
