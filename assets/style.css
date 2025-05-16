@@ -144,7 +144,380 @@ nav a:focus {
 section {
   margin-bottom: 2rem;
 }
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
 
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #0984e3;
+}
+.secure-link {
+  color: #2c3e50;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.secure-link:hover {
+  border-color: #3498db;
+}
+
+.project-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-features {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.project-features li {
+  margin-bottom: 0.5rem;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+/* Profile Section Styles */
+.profile-section {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
+}
+
+.profile-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.profile-alias {
+  color: #0984e3;
+  font-weight: 500;
+}
+
+.profile-tagline {
+  font-size: 1.1rem;
+  color: #636e72;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.expertise-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.expertise-item:hover {
+  transform: translateY(-5px);
+}
+
+.philosophy-quote {
+  border-left: 4px solid #0984e3;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* Services Section Styles */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: #0984e3;
+  margin-bottom: 1rem;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.tech-stack li {
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+  
+  .profile-name {
+    font-size: 1.75rem;
+  }
+}
+.universe-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.universe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.dimension-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.dimension-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.dimension-icon {
+  font-size: 1.5rem;
+  color: #0984e3;
+}
+
+.music-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.music-platform {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.music-platform:hover {
+  transform: translateY(-3px);
+}
+
+.soundcloud { background: #ff8800; color: white; }
+.spotify { background: #1db954; color: white; }
+
+.life-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #2d3436;
+  transition: transform 0.3s ease;
+  font-size: 1.25rem;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+  color: #0984e3;
+}
+
+.life-factor {
+  position: relative;
+  padding: 1.5rem;
+background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.life-factor p {
+  margin: 0.75rem 0;
+}
+
+.learning-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.callout-icon {
+  font-size: 2.5rem;
+  color: #2d3436;
+}
+
+@media (max-width: 768px) {
+  .universe-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .learning-callout {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* ==========================================================================
+   Contact Design & Forms
+   ========================================================================== */
+.contact-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2d3436;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #0984e3;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0984e3;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #0873c4;
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-button:hover .button-icon {
+  transform: translateX(3px);
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+}
 /* ==========================================================================
    Chatbot Interface
    ========================================================================== */
