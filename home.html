@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin Marville – Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+            },
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'slide-up': 'slideUp 0.8s ease-out forwards',
+            'scale-in': 'scaleIn 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    /* Smooth transitions for card hovers */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dark mode adjustments */
+    .dark .card-hover:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Scroll reveal effect */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navigation styles */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #0ea5e9;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-primary-500">Kevin Marville</a>
+      <div class="flex gap-6">
+        <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-500">About</a>
+        <a href="#services" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-500">Services</a>
+        <a href="#personal-universe" class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary-500">Universe</a>
+      </div>
+      <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-primary-500" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-6 animate-slide-up">Welcome to My Portfolio</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 animate-slide-up" style="animation-delay: 0.2s;">
+      Crafting seamless digital experiences with code, creativity, and a touch of innovation.
+    </p>
+    <a href="#about" class="inline-block px-6 py-3 rounded-lg bg-primary-500 text-white hover:bg-primary-600 transition animate-slide-up" style="animation-delay: 0.4s;">
+      Discover More
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12 scroll-reveal" aria-labelledby="about-heading">
+    <div class="text-center mb-12">
+      <h2 id="about-heading" class="text-3xl font-bold animate-fade-in">About Me</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+        Discover the journey behind the code
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6 animate-fade-in" style="animation-delay: 0.4s;">
+        <p class="text-lg">
+          I'm a passionate freelance developer with over 7 years of experience, specializing in creating seamless digital experiences that combine technical excellence with creative innovation.
+        </p>
+        <p class="text-lg">
+          My journey began with self-taught coding experiments, evolving into a career where I’ve delivered solutions for startups and established brands alike. I thrive on transforming complex challenges into elegant, user-centric systems.
+        </p>
+        <p class="text-lg">
+          Beyond code, I'm a sci-fi enthusiast, music producer, and avid explorer of global cuisines. These diverse interests fuel my creative approach to problem-solving.
+        </p>
+        <div class="pt-4">
+          <a href="https://www.mediafire.com/file/ovwjdxtdwwkyk2i/Kevin_Marville_CV_FullStack_Web-Mobile_Developer_Paris_2025.pdf/file" 
+             class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium" 
+             target="_blank" 
+             rel="noopener noreferrer">
+            Download Resume
+            <i class="fas fa-arrow-down ml-2"></i>
+          </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 animate-fade-in" style="animation-delay: 0.6s;">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Clean Code</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Crafting maintainable, well-documented code that scales effortlessly.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Intuitive Design</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Designing interfaces that are both visually stunning and user-friendly.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Performance</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Optimizing for speed and efficiency to ensure smooth experiences.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover">
+          <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Innovation</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Solving problems with creative, forward-thinking solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Expertise Section -->
+  <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12 scroll-reveal" aria-labelledby="services-heading">
+    <div class="text-center mb-12">
+      <h2 id="services-heading" class="text-3xl font-bold animate-fade-in">Technical Expertise</h2>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 animate-fade-in" style="animation-delay: 0.2s;">
+        Core technologies and services I offer
+      </p>
+    </div>
+    <div id="skills-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 animate-scale-in" style="animation-delay: 0.4s;"></div>
+  </section>
+
+  <!-- Technical Offerings Section -->
+  <section id="technical-offerings" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-reveal" aria-labelledby="offerings-heading">
+    <div class="text-center mb-12">
+      <h2 id="offerings-heading" class="text-3xl font-bold animate-fade-in">Technical Offerings</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.2s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-code"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Frontend Engineering</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Modern implementation with reactive architectures</p>
+        <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-1">
+          <li>React/Next.js</li>
+          <li>TypeScript</li>
+          <li>WebGL/Three.js</li>
+        </ul>
+      </article>
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.4s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Backend Development</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Scalable system architecture and API design</p>
+        <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-1">
+          <li>Node.js/NestJS</li>
+          <li>GraphQL</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </article>
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.6s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-cube"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Digital Creation</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Immersive experience development</p>
+        <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-1">
+          <li>WebXR</li>
+          <li>WebAssembly</li>
+          <li>Procedural Generation</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Personal Universe Section -->
+  <section id="personal-universe" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800/50 rounded-3xl my-12 scroll-reveal" aria-labelledby="universe-heading">
+    <div class="text-center mb-12">
+      <h2 id="universe-heading" class="text-3xl font-bold animate-fade-in">My Universe</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Technical Pursuits -->
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.2s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Technical Interest</h3>
+        <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-4">
+          <li>
+            <h4 class="font-semibold">Robotic Systems</h4>
+            <p>Exploring ROS frameworks & autonomous navigation</p>
+          </li>
+          <li>
+            <h4 class="font-semibold">Systems Programming</h4>
+            <p>C++20 • Kernel Development • Embedded Systems</p>
+          </li>
+        </ul>
+      </article>
+      <!-- Creative Expressions -->
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.4s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-music"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Beatmaking & Production</h3>
+        <div class="space-y-4">
+          <div class="flex gap-4">
+            <a href="https://soundcloud.com/kvnbbg" class="flex items-center text-primary-500 hover:text-primary-600" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-soundcloud mr-2"></i> Legacy Tracks
+            </a>
+            <a href="https://open.spotify.com/album/4U4GhULZG8ZKSbDOY9iJ99" class="flex items-center text-primary-500 hover:text-primary-600" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-spotify mr-2"></i> Streaming Catalog
+            </a>
+          </div>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Early compositions available across platforms (like Amazon Music or Deezer).</p>
+        </div>
+      </article>
+      <!-- Lifestyle Matrix -->
+      <article class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm card-hover animate-scale-in" style="animation-delay: 0.6s;">
+        <div class="text-primary-500 dark:text-primary-400 text-3xl mb-3">
+          <i class="fas fa-infinity"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-2">The Life</h3>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <span class="text-2xl mr-2">👨👧</span>
+            <div>
+              <p class="text-gray-600 dark:text-gray-400">Fatherhood<br>(30 y/o Mentor-in-Progress)</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://www.instagram.com/techandstream" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                  <i class="fab fa-instagram text-primary-500 hover:text-primary-600"></i>
+                </a>
+                <a href="https://www.facebook.com/techandstream" target="_blank" rel="noopener noreferrer" aria-label="Facebook page">
+                  <i class="fab fa-facebook text-primary-500 hover:text-primary-600"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-2xl mr-2">🌍</span>
+            <div>
+              <p class="text-gray-600 dark:text-gray-400">Culinary Cartography<br>3 Countries Explored</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://www.tiktok.com/@techandstream" target="_blank" rel="noopener noreferrer" aria-label="TikTok account">
+                  <i class="fab fa-tiktok text-primary-500 hover:text-primary-600"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <span class="text-2xl mr-2">📚</span>
+            <div>
+              <p class="text-gray-600 dark:text-gray-400">Literary Obsessions<br>Fantasy/Math/Physics Deep Dives</p>
+              <div class="flex gap-2 mt-2">
+                <a href="https://www.goodreads.com/user/show/189432744-kevin-marville" target="_blank" rel="noopener noreferrer" aria-label="Goodreads profile">
+                  <i class="fab fa-goodreads text-primary-500 hover:text-primary-600"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full bg-gray-900 text-white py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-sm">
+          © <span id="copyrightYear">2025</span> Kevin Marville. Tous droits réservés.
+        </p>
+        <div class="flex gap-4">
+          <a href="https://github.com/Kvnbbg" class="hover:text-primary-400 transition" aria-label="GitHub">
+            <i class="fab fa-github w-6 h-6"></i>
+          </a>
+          <a href="https://linkedin.com/in/kevin-marville" class="hover:text-primary-400 transition" aria-label="LinkedIn">
+            <i class="fab fa-linkedin w-6 h-6"></i>
+          </a>
+          <a href="mailto:contact@kvnbbg-creations.io" class="hover:text-primary-400 transition" aria-label="Email">
+            <i class="fas fa-envelope w-6 h-6"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      themeToggle.innerHTML = html.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+
+    // Skills rendering
+    const skills = [
+      { name: "HTML5", icon: "fab fa-html5", color: "text-orange-500" },
+      { name: "CSS3", icon: "fab fa-css3-alt", color: "text-blue-500" },
+      { name: "JavaScript", icon: "fab fa-js", color: "text-yellow-500" },
+      { name: "React", icon: "fab fa-react", color: "text-blue-400" },
+      { name: "Node.js", icon: "fab fa-node-js", color: "text-green-600" },
+      { name: "Python", icon: "fab fa-python", color: "text-blue-600" },
+      { name: "TypeScript", icon: "fas fa-code", color: "text-blue-700" },
+      { name: "GraphQL", icon: "fas fa-network-wired", color: "text-pink-500" },
+      { name: "Docker", icon: "fab fa-docker", color: "text-blue-500" },
+      { name: "AWS", icon: "fab fa-aws", color: "text-orange-400" },
+      { name: "MongoDB", icon: "fas fa-database", color: "text-green-500" },
+      { name: "PostgreSQL", icon: "fas fa-database", color: "text-blue-600" }
+    ];
+
+    const skillsContainer = document.getElementById('skills-container');
+    skills.forEach(skill => {
+      const skillDiv = document.createElement('div');
+      skillDiv.className = 'bg-white dark:bg-gray-700 p-4 rounded-xl shadow-sm card-hover text-center';
+      skillDiv.innerHTML = `
+        <i class="${skill.icon} ${skill.color} text-3xl mb-3"></i>
+        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">${skill.name}</p>
+      `;
+      skillsContainer.appendChild(skillDiv);
+    });
+
+    // Scroll reveal effect
+    const scrollReveals = document.querySelectorAll('.scroll-reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    scrollReveals.forEach(element => observer.observe(element));
+
+    // Update copyright year
+    const currentYear = new Date().getFullYear();
+    const yearNode = document.getElementById('copyrightYear');
+    if (yearNode && +yearNode.textContent !== currentYear) {
+      yearNode.textContent = currentYear;
+    }
+  </script>
+</body>
+</html>
