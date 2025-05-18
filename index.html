@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </button>
     </div>
   </header>
-  <main class="pt-20 space-y-24 max-w-7xl mx-auto px-4">
+<main class="pt-20 space-y-24 max-w-7xl mx-auto px-4">
     <section class="section-animate flex flex-col md:flex-row items-center gap-8" id="about">
       <div class="flex-1 space-y-4">
         <h1 class="text-3xl md:text-4xl font-bold">Salut 👋, je suis <span class="text-primary-500">Kevin Marville</span></h1>
@@ -188,12 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flex gap-4">
           <a href="#contact" class="twin">Me contacter</a>
           <a href="#projects" class="twin bg-transparent text-primary-500 border border-primary-500">Voir les projets</a>
-           <a href="#" 
-               class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium" 
-               target="_blank" 
-               rel="noopener noreferrer">
-              Download Resume
-              <i class="fas fa-arrow-down ml-2"></i></a>
         </div>
       </div>
       <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=600&q=80" alt="Espace de travail" class="hero-img md:w-1/2 rounded-lg" loading="lazy">
@@ -334,11 +328,12 @@ document.addEventListener('DOMContentLoaded', () => {
     aria-describedby="message-help" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors" required aria-required="true"></textarea>
           </div>
           <button type="submit" class="w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors">Send Message</button>
+          <br>
+          <p id="message-help" class="form-text-help text-sm text-gray-500 mt-1">
+            The more context you give us, the better we can tailor our response.
+          </p>
         </form>
       </div>
-          <p id="message-help" class="form-text-help text-sm text-gray-500 mt-1">
-    The more context you give us, the better we can tailor our response.
-  </p>
     </section>
       <p>Créons quelque chose d’exceptionnel !</p>
     </section>

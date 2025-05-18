@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirection | Kevin Marville – Portfolio</title>
+
+  <!-- Redirection après 5 s -->
+  <meta http-equiv="refresh" content="5;url=https://kvnbbg-creations.io/">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0ea5e9'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Animation pour le fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Animation pour la barre de progression */
+    @keyframes progress {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .progress-bar {
+      animation: progress 5s linear forwards;
+    }
+
+    /* Animation de pulsation pour le loader */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    .pulse {
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-primary/10 to-white text-gray-800">
+
+  <main class="text-center px-6 pt-12">
+    <!-- Loader pulsant -->
+    <div class="mb-6">
+      <div class="w-12 h-12 mx-auto rounded-full bg-primary/30 pulse"></div>
+    </div>
+
+    <h1 class="text-4xl font-bold mb-4 opacity-0 animate-fadeIn" style="animation-delay: 0.2s;">
+      Bienvenue !
+    </h1>
+    <p class="text-lg mb-8 opacity-0 animate-fadeIn" style="animation-delay: 0.4s;">
+      Vous serez automatiquement redirigé vers la version en ligne du portfolio dans quelques secondes…
+    </p>
+
+    <!-- Barre de progression -->
+    <div class="w-64 h-2 bg-gray-200 rounded-full mx-auto mb-8 overflow-hidden">
+      <div class="h-full bg-primary progress-bar"></div>
+    </div>
+
+    <!-- Boutons -->
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://kvnbbg.github.io/PersonalPortfolio/home"
+         class="px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 transition opacity-0 animate-fadeIn"
+         style="animation-delay: 0.6s;">
+        Home
+      </a>
+
+      <a href="https://kvnbbg.github.io/PersonalPortfolio/"
+         class="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition opacity-0 animate-fadeIn"
+         style="animation-delay: 0.8s;">
+        Chatbot
+      </a>
+
+      <a href="https://github.com/Kvnbbg/PersonalPortfolio"
+         class="px-6 py-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition opacity-0 animate-fadeIn"
+         style="animation-delay: 1s;">
+        Code source
+      </a>
+    </div>
+
+    <!-- Compte à rebours -->
+    <p id="countdown" class="mt-6 text-sm text-gray-600 opacity-0 animate-fadeIn" style="animation-delay: 1.2s;"></p>
+  </main>
+  
+  
+
+  <!-- Common Footer -->
+  <footer class="w-full bg-gray-900 text-white py-6 mt-8">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 opacity-0 animate-fadeIn" style="animation-delay: 1.4s;">
+           <!-- Copyright -->
+<p class="text-sm">
+  &copy; <span id="copyrightYear">2025</span> Kevin Marville. Tous droits réservés.
+</p>
+
+<script>
+  // Met à jour l’année automatiquement si JS est disponible
+  (function () {
+    const currentYear = new Date().getFullYear();
+    const yearNode    = document.getElementById('copyrightYear');
+    if (yearNode && +yearNode.textContent !== currentYear) {
+      yearNode.textContent = currentYear;
+    }
+  })();
+</script>
+
+        <!-- Social Links -->
+        <div class="flex gap-4">
+          <a href="https://github.com/Kvnbbg" class="hover:text-primary transition" aria-label="GitHub">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.49v-1.7c-2.78.61-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.564 9.564 0 0112 6.8c.85.004 1.71.11 2.52.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.67.92.67 1.85v2.74c0 .27.16.59.67.49A10.013 10.013 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/kevin-marville" class="hover:text-primary transition" aria-label="LinkedIn">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.59v-5.64c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.74H9.24V9.03h3.45v1.56h.05c.48-.91 1.66-1.87 3.42-1.87 3.66 0 4.34 2.41 4.34 5.54v6.19zM5.28 7.47a2.09 2.09 0 01-2.08-2.1 2.09 2.09 0 112.08 2.1zm1.8 13h-3.6V9.03h3.6v11.42zM22 22H2a2 2 0 01-2-2V4a2 2 0 012-2h20a2 2 0 012 2v16a2 2 0 01-2 2z"/></svg>
+          </a>
+          <a href="mailto:contact@kvnbbg-creations.io" class="hover:text-primary transition" aria-label="Email">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5V6l8 5 8-5v12H4V6h16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Compte à rebours visuel
+    let remain = 5;
+    const out = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      remain--;
+      out.textContent = `Rafraîchissement dans ${remain} s…`;
+      if (remain <= 0) clearInterval(timer);
+    }, 1000);
+    out.textContent = `Rafraîchissement dans ${remain} s…`;
+  </script>
+</body>
+</html>
