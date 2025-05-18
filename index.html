@@ -209,18 +209,18 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="bot chat-bubble">Tapez "glossary" ou "full" pour la liste des commandes, ou "space game" pour une surprise !</p>
       </div>
       <div class="flex gap-2">
-        <input type="text" id="user-message" placeholder="Posez votre question…" class="flex-1" aria-label="Message au chatbot"/>
-        <button id="send-btn" class="twin">Envoyer</button>
+        <input type="text" id="user-message" placeholder="Posez votre question…" class="flex-1" aria-label="Message au chatbot">
+        <button type="submit" id="send-btn" class="twin">Envoyer</button>
       </div>
-      <div id="gamification" class="space-y-4" aria-label="Progression gamifiée">
+      <div id="gamification" class="space-y-4" alt="Progression gamifiée">
         <div class="flex items-center gap-4">
-          <span class="font-semibold" aria-label="Points actuels">Points: <span id="points">0</span></span>
-          <span class="font-semibold" aria-label="Niveau actuel">Niveau: <span id="level">1</span></span>
+          <span class="font-semibold" alt="Points actuels">Points: <span id="points">0</span></span>
+          <span class="font-semibold" alt="Niveau actuel">Niveau: <span id="level">1</span></span>
         </div>
         <div class="w-full bg-gray-700 rounded-full h-2" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-          <div id="progress-bar" class="bg-primary-500 h-2 rounded-full" style="width: 0%"></div>
+          <div id="progress-bar" class="bg-primary-500 h-2 rounded-full width: 0%"></div>
         </div>
-        <div id="badges" class="flex gap-2 flex-wrap" aria-label="Badges débloqués"></div>
+        <div id="badges" class="flex gap-2 flex-wrap" alt="Badges débloqués"></div>
       </div>
     </section>
               <!-- Progress Section -->
@@ -296,14 +296,14 @@ document.addEventListener('DOMContentLoaded', () => {
               <div>
                 <h4 class="font-medium">Connect</h4>
                 <div class="flex space-x-4 mt-1">
-                 <a href="https://facebook.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+            <a href="https://facebook.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
                     Instagram<i class="fab fa-facebook"></i>
                   </a>
                   <a href="https://instagram.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
                     Instagram<i class="fab fa-instagram"></i>
                   </a>
                   <a href="https://linkedin.com/in/kevinmarville" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                   Linkedin <i class="fab fa-linkedin"></i>
+            Linkedin <i class="fab fa-linkedin"></i>
                   </a>
                   <a href="https://x.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="X profile">
                     X<i class="fab fa-twitter"></i>
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
             <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors"  placeholder="Kevin Marville"
-           required aria-required="true">
+      required aria-required="true">
           </div>
           <div>
             <label for="email" class="block text-sm font-medium mb-1">Email</label>
@@ -567,8 +567,8 @@ document.querySelectorAll('a[href="#contact"]').forEach(anchor => {
     <nav class="flex justify-center gap-4 text-sm" aria-label="Footer navigation">
       <ul>
         <li><a rel="me" href="https://mastodon.social/@kevinmarville" class="hover:text-primary-500" target="_blank">Mastodon</a></li>
-      <li><a href="https://github.com/kvnbbg" target="_blank" class="hover:text-primary-500" target="_blank">GitHub</a></li>
-      <li><a href="https://kvnbbg.fr" target="_blank" class="hover:text-primary-500" target="_blank">Blog</a></li>
+      <li><a href="https://github.com/kvnbbg" target="_blank" class="hover:text-primary-500">GitHub</a></li>
+      <li><a href="https://kvnbbg.fr" target="_blank" class="hover:text-primary-500">Blog</a></li>
       </ul>
     </nav>
 
