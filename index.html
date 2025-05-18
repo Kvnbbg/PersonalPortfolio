@@ -1,0 +1,377 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin Marville | Portfolio</title>
+  <meta name="description" content="Portfolio of Kevin Marville – Creative Developer & Systems Architect">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Press+Start+2P&family=M+PLUS+Rounded+1c&display=swap">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-white text-gray-800 dark:bg-darkbg dark:text-white">
+  <header class="bg-primary text-white py-6 px-4 text-center relative overflow-hidden">
+    <div class="language-selector flex justify-center gap-4 mb-4">
+      <span>🇺🇸</span><span>🇫🇷</span><span>🇪🇸</span><span>🇨🇳</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold animate-text-reveal">
+      <span class="inline-block" data-text="Welcome">Welcome to My Portfolio!</span>
+      <span class="inline-block" data-text="Bienvenue">Bienvenue sur mon portfolio !</span>
+      <span class="inline-block" data-text="¡Bienvenido">¡Bienvenido a mi portafolio!</span>
+      <span class="inline-block" data-text="欢迎">欢迎来到我的作品集！</span>
+    </h1>
+    <div class="max-w-2xl mx-auto mt-6 space-y-4">
+      <p class="text-lg animate-text-reveal">
+        <span class="inline-block" data-text="⚠️">⚠️ Note: This site is currently English-only.</span>
+        <span class="inline-block" data-text="⚠️">⚠️ Note : ce site est uniquement disponible en anglais.</span>
+        <span class="inline-block" data-text="⚠️">⚠️ Nota: este sitio está actualmente solo en inglés.</span>
+        <span class="inline-block" data-text="⚠️">⚠️ 注意：此网站目前仅提供英文。</span>
+      </p>
+      <p class="text-lg animate-text-reveal">
+        <span class="inline-block" data-text="Explore">Explore my projects, check out my GitHub, or read my blog at kvnbbg.fr.</span>
+        <span class="inline-block" data-text="Découvrez">Découvrez mes projets, consultez mon GitHub ou lisez mon blog à kvnbbg.fr.</span>
+        <span class="inline-block" data-text="Explora">Explora mis proyectos, visita mi GitHub o lee mi blog en kvnbbg.fr.</span>
+        <span class="inline-block" data-text="浏览">浏览我的项目、查看我的 GitHub 或在 kvnbbg.fr 阅读我的博客。</span>
+      </p>
+      <p class="text-lg animate-text-reveal">
+        <span class="inline-block" data-text="For">For a hidden easter egg, type “space game” in the chatbot.</span>
+        <span class="inline-block" data-text="Pour">Pour un easter egg caché, tapez « space game » dans le chatbot.</span>
+        <span class="inline-block" data-text="Para">Para un easter egg oculto, escribe “space game” en el chatbot.</span>
+        <span class="inline-block" data-text="想要">想要隐藏彩蛋，请在聊天机器人中输入 “space game”。</span>
+      </p>
+      <a href="#about" class="inline-block px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105 animate-text-reveal">
+        <span class="inline-block" data-text="Let's">Let's Go!</span>
+        <span class="inline-block" data-text="C'est">C'est parti !</span>
+        <span class="inline-block" data-text="¡Vamos">¡Vamos!</span>
+        <span class="inline-block" data-text="开始">开始！</span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="bg-accent text-white py-4 px-4 sticky top-0 z-50">
+    <div class="container flex justify-between items-center">
+      <a href="#" class="text-xl font-bold">kvnbbg-creations.io</a>
+      <ul class="menu hidden md:flex gap-6">
+        <li><a href="#about" class="hover:text-primary transition-colors duration-300">About</a></li>
+        <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
+        <li><a href="#projects" class="hover:text-primary transition-colors duration-300">Projects</a></li>
+        <li><a href="#progress" class="hover:text-primary transition-colors duration-300">Progress</a></li>
+        <li><a href="#chatbot" class="hover:text-primary transition-colors duration-300">Chatbot</a></li>
+        <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+      </ul>
+      <div class="flex gap-4">
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">🌙</button>
+        <button class="menu-toggle md:hidden p-2 text-2xl">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu md:hidden bg-white dark:bg-darkbg">
+      <div class="flex justify-between p-4">
+        <span>Menu</span>
+        <button class="menu-toggle text-2xl">✕</button>
+      </div>
+      <ul class="flex flex-col gap-4 p-4">
+        <li><a href="#about" class="hover:text-primary">About</a></li>
+        <li><a href="#services" class="hover:text-primary">Services</a></li>
+        <li><a href="#projects" class="hover:text-primary">Projects</a></li>
+        <li><a href="#progress" class="hover:text-primary">Progress</a></li>
+        <li><a href="#chatbot" class="hover:text-primary">Chatbot</a></li>
+        <li><a href="#contact" class="hover:text-primary">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="about" class="profile-section py-16 animate-section">
+      <div class="profile-card">
+        <div class="profile-header">
+          <h1 class="profile-name">Hi, I'm Kevin Marville</h1>
+          <p class="profile-alias">Creative Developer & Systems Architect</p>
+          <p class="profile-tagline">I craft innovative digital experiences that blend cutting-edge technology with creative design, delivering impactful solutions for modern challenges.</p>
+          <div class="mt-6 flex gap-4 justify-center">
+            <a href="#contact" class="cta-button bg-primary text-white">Get in Touch</a>
+            <a href="#projects" class="cta-button bg-accent text-white">View My Work</a>
+          </div>
+        </div>
+      </div>
+      <h2 class="section-heading">About Me</h2>
+      <p>I'm a passionate freelance developer with over 7 years of experience, specializing in creating seamless digital experiences that combine technical excellence with creative innovation.</p>
+      <p>My journey began with self-taught coding experiments, evolving into a career where I’ve delivered solutions for startups and established brands alike. I thrive on transforming complex challenges into elegant, user-centric systems.</p>
+      <p>Beyond code, I'm a sci-fi enthusiast, music producer, and avid explorer of global cuisines. These diverse interests fuel my creative approach to problem-solving.</p>
+      <a href="#" class="cta-button bg-primary text-white mt-4 inline-block">Download Resume</a>
+      <div class="expertise-grid">
+        <div class="expertise-item">
+          <h3>Clean Code</h3>
+          <p>Crafting maintainable, well-documented code that scales effortlessly.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Intuitive Design</h3>
+          <p>Designing interfaces that are both visually stunning and user-friendly.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Performance</h3>
+          <p>Optimizing for speed and efficiency to ensure smooth experiences.</p>
+        </div>
+        <div class="expertise-item">
+          <h3>Innovation</h3>
+          <p>Solving problems with creative, forward-thinking solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="universe-section py-16 animate-section">
+      <h2 class="section-heading">Technical Expertise</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚛️</div>
+          <h3>Frontend Engineering</h3>
+          <p>Modern implementation with reactive architectures</p>
+          <ul class="tech-stack">
+            <li>React/Next.js</li>
+            <li>TypeScript</li>
+            <li>WebGL/Three.js</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🗄️</div>
+          <h3>Backend Development</h3>
+          <p>Scalable system architecture and API design</p>
+          <ul class="tech-stack">
+            <li>Node.js/NestJS</li>
+            <li>GraphQL</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌌</div>
+          <h3>Digital Creation</h3>
+          <p>Immersive experience development</p>
+          <ul class="tech-stack">
+            <li>WebXR</li>
+            <li>WebAssembly</li>
+            <li>Procedural Generation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 animate-section">
+      <h2 class="section-heading">Featured Projects</h2>
+      <!-- Add project cards here -->
+    </section>
+
+    <section id="progress" class="py-16 animate-section">
+      <h2 class="section-heading">Daily Tracker</h2>
+      <div class="learning-callout">
+        <div class="callout-icon">📚</div>
+        <div>
+          <h3>Self-Disciplined Learner</h3>
+          <p>25h/week across Technical Journals, Research Papers, and Experimental Projects</p>
+          <progress id="progressBar" class="neon-progress" value="72" max="100"></progress>
+          <p>72% Complete • Updated: 2025-05-16</p>
+          <a href="#" class="link-hub">Find More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="chatbot" class="py-16 animate-section">
+      <h2 class="section-heading">Interactive Chatbot</h2>
+      <div class="chatbot">
+        <div id="chat-output" class="terminal-output">
+          <p class="bot">Welcome to my chatbot! I'm here to answer questions about my background, projects, or tech interests. (Psst! Try typing "space game" for a surprise! Or "list")</p>
+        </div>
+        <div class="input-container">
+          <input id="user-message" type="text" placeholder="Type your message...">
+          <button>Send</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section py-16 animate-section">
+      <h2 class="section-heading">Get in Touch Today</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>Whether you have a project idea, a question, or just want to connect, I'm all ears (or rather, all text). Reach out and let's create something amazing together!</p>
+          <div class="mt-4">
+            <p><strong>Email:</strong> <a href="mailto:[email protected]">[email protected]</a></p>
+            <p><strong>Location:</strong> Paris, France</p>
+            <p><strong>Connect:</strong> <a href="#">Instagram</a> | <a href="#">LinkedIn</a> | <a href="#">X</a></p>
+          </div>
+        </div>
+        <form class="contact-form mt-8">
+          <div class="form-group">
+            <label class="form-label" for="full-name">Full Name</label>
+            <input class="form-input" id="full-name" type="text" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" type="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input class="form-input" id="subject" type="text" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" placeholder="Message"></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message <span class="button-icon">→</span></button>
+        </form>
+        <p class="mt-4 text-center text-sm text-gray-600">The more context you give us, the better we can tailor our response.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-white">
+    <div class="container text-center">
+      <p>kvnbbg-creations.io • © 2025 Kevin Marville. All rights reserved.</p>
+      <div class="social-links mt-4">
+        <a href="#">Github</a>
+        <a href="#">Threads</a>
+        <a href="#">Youtube</a>
+        <a href="#">Facebook</a>
+        <a href="#">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary text-white rounded-full transition-opacity duration-300">↑</button>
+
+  <div id="notice-modal" class="hidden">
+    <div class="notice-content">
+      <p>Oops—some functionality failed to load. Please try again later.</p>
+      <button>Close</button>
+    </div>
+  </div>
+
+  <script>
+    // GSAP Animations
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header text reveal
+      gsap.from('.animate-text-reveal span', {
+        opacity: 0,
+        y: 20,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
+
+      // Section animations
+      gsap.utils.toArray('.animate-section').forEach(section => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+
+      // Navigation hover effect
+      gsap.utils.toArray('nav a').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          gsap.to(link, { scale: 1.1, duration: 0.3, ease: 'power2.out' });
+        });
+        link.addEventListener('mouseleave', () => {
+          gsap.to(link, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        });
+      });
+
+      // Mobile menu animation
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        gsap.to(mobileMenu, {
+          x: isOpen ? 0 : '-100%',
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      themeToggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Back to top
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 300);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Chatbot typing animation
+    const chatOutput = document.getElementById('chat-output');
+    const userMessage = document.getElementById('user-message');
+    document.querySelector('#chatbot button').addEventListener('click', () => {
+      const text = userMessage.value.trim();
+      if (text) {
+        const userP = document.createElement('p');
+        userP.className = 'user';
+        userP.textContent = text;
+        chatOutput.appendChild(userP);
+        gsap.from(userP, { opacity: 0, x: 20, duration: 0.5, ease: 'power2.out' });
+        userMessage.value = '';
+        // Simulate bot response
+        setTimeout(() => {
+          const botP = document.createElement('p');
+          botP.className = 'bot';
+          botP.textContent = text === 'space game' ? '🚀 Easter egg activated! Launching space game...' : 'Thanks for your message!';
+          chatOutput.appendChild(botP);
+          gsap.from(botP, { opacity: 0, x: -20, duration: 0.5, ease: 'power2.out' });
+          chatOutput.scrollTop = chatOutput.scrollHeight;
+        }, 500);
+      }
+    });
+  </script>
+</body>
+</html>

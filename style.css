@@ -1,0 +1,362 @@
+/* ==========================================================================
+   Global Variables
+   ========================================================================== */
+:root {
+  --primary-color: #0e57e9;
+  --primary-hover: #084bb5;
+  --accent-color: #ffc107;
+  --kawaii-accent: #ff99cc;
+  --background-color: #f0f0f0;
+  --text-color: #212121;
+  --bg-light: #ffffff;
+  --bg-dark: #111827;
+  --text-light: #1f2937;
+  --text-dark: #f9fafb;
+  --border-color: #e5e7eb;
+  --muted-color: #6b7280;
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-kawaii: 'M PLUS Rounded 1c', sans-serif;
+  --font-family-pixel: 'Press Start 2P', cursive;
+  --transition-speed: 0.3s;
+  --border-radius: 8px;
+  --radius-bubble: 1rem;
+  --gap-base: 0.5rem;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Reset & Base Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--text-light);
+  background: var(--bg-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  will-change: background-color;
+}
+
+html.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--kawaii-accent);
+  left: 0;
+  bottom: -3px;
+  transition: width var(--transition-speed) ease;
+}
+
+a:hover::after,
+a:focus::after {
+  width: 100%;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+  font-family: var(--font-family-kawaii);
+  will-change: transform, opacity;
+}
+
+.animate-text-reveal span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+nav {
+  background: var(--accent-color);
+  will-change: transform;
+}
+
+nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-light);
+  transform: translateX(-100%);
+  z-index: 50;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.dark .mobile-menu {
+  background: var(--bg-dark);
+}
+
+/* ==========================================================================
+   Main Container & Sections
+   ========================================================================== */
+.container {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 2rem;
+  will-change: opacity, transform;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* ==========================================================================
+   Profile Section
+   ========================================================================== */
+.profile-section {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
+}
+
+.profile-card {
+  background: var(--bg-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+}
+
+.dark .profile-card {
+  background: var(--bg-dark);
+}
+
+.profile-name {
+  font-size: 2.25rem;
+  color: var(--text-light);
+}
+
+.dark .profile-name {
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition-speed) ease;
+}
+
+.dark .service-card {
+  background: var(--bg-dark);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   Chatbot
+   ========================================================================== */
+.chatbot {
+  background: #000;
+  color: #33ff33;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  font-family: monospace;
+  box-shadow: var(--shadow);
+  animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  from { box-shadow: 0 0 10px rgba(0, 255, 153, 0.3); }
+  to { box-shadow: 0 0 20px rgba(0, 255, 153, 0.8); }
+}
+
+.terminal-output {
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 2px solid #33ff33;
+  padding: 0.5rem;
+}
+
+#chat-output p {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  max-width: 80%;
+  word-wrap: break-word;
+  opacity: 0;
+}
+
+#chat-output p.bot {
+  background: var(--border-environment);
+  color: var(--text-light);
+  align-self: flex-start;
+  border-radius: var(--radius-bubble) var(--radius-bubble) 0 var(--radius-bubble);
+}
+
+.dark #chat-output p.bot {
+  background: #2e3a4e;
+  color: var(--text-dark);
+}
+
+#chat-output p.user {
+  background: var(--primary-color);
+  color: var(--text-dark);
+  align-self: flex-end;
+  border-radius: var(--radius-bubble) var(--radius-bubble) var(--radius-bubble) 0;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+.contact-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+}
+
+.contact-form {
+  background: var(--bg-light);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.dark .contact-form {
+  background: var(--bg-dark);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  background: linear-gradient(135deg, #333, #444);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* ==========================================================================
+   Back to Top
+   ========================================================================== */
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary-color);
+  color: var(--text-dark);
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  nav .menu { display: none; }
+  nav .menu-toggle { display: block; }
+  .container { padding: 1rem; }
+}
+
+@media (min-width: 769px) {
+  nav .menu { display: flex; }
+  nav .menu-toggle { display: none; }
+}
