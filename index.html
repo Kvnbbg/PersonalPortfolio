@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://picsum.photos; connect-src 'self'; frame-src 'self';">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="fediverse:creator" content="@kevinmarville@mastodon.social">
+  <title>Kevin Marville | Portfolio 2025</title>
+  <meta name="description" content="Portfolio de Kevin Marville — Développeur créatif & architecte systèmes.">
+  <meta name="keywords" content="Kevin Marville, Développeur Web, XR, Chatbot, Portfolio, Creative Coding, Tailwind, Three.js">
+  <meta name="author" content="Kevin Marville">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0ea5e9">
+  <meta property="og:title" content="Kevin Marville – Portfolio 2025">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kvnbbg-creations.io">
+  <meta property="og:image" content="/assets/f/og-image.jpg">
+  <meta property="og:description" content="Découvrez mes projets creatifs high-tech.">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#0ea5e9',
+              600: '#0284c7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --primary-hover: #0284c7;
+      --bot: #e5e5ea;
+      --user: #0ea5e9;
+      --bg: #ffffff;
+      --bg-dark: #111827;
+      --radius: 0.75rem;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; background: var(--bg); color: #1f2937; }
+    .dark body { background: var(--bg-dark); color: #f9fafb; }
+    #chat-output { display: flex; flex-direction: column; gap: 0.5rem; height: 300px; overflow-y: auto; padding: 1rem; border: 1px solid #e5e7eb; border-radius: var(--radius); background: var(--bg); }
+    .dark #chat-output { background: #1f2a3c; border-color: #374151; }
+    #chat-output p { margin: 0; padding: 0.75rem 1rem; max-width: 80%; word-wrap: break-word; border-radius: var(--radius); }
+    #chat-output p.user { align-self: flex-end; background: var(--user); color: #fff; border-bottom-right-radius: 0; }
+    #chat-output p.bot { align-self: flex-start; background: var(--bot); color: #000; border-bottom-left-radius: 0; }
+    #user-message { flex: 1; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: var(--radius); }
+    .dark #user-message { background: #374151; color: #f9fafb; border-color: #4b5563; }
+    button.twin { padding: 0.75rem 1.5rem; background: var(--primary); color: #fff; border: none; border-radius: var(--radius); transition: background 0.2s; }
+    button.twin:hover { background: var(--primary-hover); }
+    /* Animations */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+    .section-animate { opacity: 0; animation: fadeIn 0.5s ease-out forwards; }
+    .section-animate:nth-child(1) { animation-delay: 0.1s; }
+    .section-animate:nth-child(2) { animation-delay: 0.2s; }
+    .section-animate:nth-child(3) { animation-delay: 0.3s; }
+    .section-animate:nth-child(4) { animation-delay: 0.4s; }
+    .project-card { transition: transform 0.2s ease; }
+    .project-card:hover { transform: scale(1.03); }
+    .chat-bubble { opacity: 0; animation: slideIn 0.3s ease-out forwards; }
+    /* Gamification */
+    #progress-bar { transition: width 0.3s ease; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #334155; border-radius: var(--radius); font-size: 0.875rem; }
+    .badge.unlocked { background: var(--primary); color: #fff; }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .section-animate, .project-card, .chat-bubble { animation: none; transition: none; opacity: 1; transform: none; }
+    }
+    /* Responsive fixes */
+    @media (max-width: 640px) {
+      #projects-container { grid-template-columns: 1fr; }
+      .hero-img { width: 100%; max-height: 300px; object-fit: cover; }
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 dark:text-gray-200">
+
+<!-- Notice Modal -->
+<div id="notice-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" role="dialog" aria-labelledby="notice-title">
+  <div class="bg-white dark:bg-gray-800 p-6 rounded-lg max-w-md w-full shadow-xl">
+    <div class="language-bar flex justify-end gap-2 mb-4">
+      <button type="button" class="flag text-lg" data-lang="fr" aria-label="Français">🇫🇷</button>
+      <button type="button" class="flag text-lg" data-lang="en" aria-label="English">🇺🇸</button>
+    </div>
+
+    <h2 id="notice-title" class="text-xl font-bold mb-4">
+      <span data-lang="fr">Bienvenue sur mon portfolio !</span>
+      <span data-lang="en" hidden>Welcome to My Portfolio!</span>
+    </h2>
+
+    <div class="space-y-4">
+      <p class="warning text-sm text-red-600">
+        <span data-lang="fr">⚠️ Note : Pour le moment, ce site est uniquement en français. Une version anglaise et d’autres langues arrivent bientôt !</span>
+        <span data-lang="en" hidden>⚠️ Note : This site is currently available in French only. Other languages, including English, will be added soon.</span>
+      </p>
+
+      <p>
+        <span data-lang="fr">Découvrez mes projets, consultez mon GitHub ou lisez mon blog à <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">kvnbbg.fr</a>.</span>
+        <span data-lang="en" hidden>Explore my projects, check out my GitHub, or read my blog at <a href="https://kvnbbg.fr" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">kvnbbg.fr</a>.</span>
+      </p>
+
+      <p>
+        <span data-lang="fr">Pour un easter egg caché, tapez <strong>« space game »</strong> dans le chatbot.</span>
+        <span data-lang="en" hidden>For a hidden easter egg, type <strong>“space game”</strong> in the chatbot.</span>
+      </p>
+
+      <button type="button" id="notice-close-btn" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <span data-lang="fr">C'est parti !</span>
+        <span data-lang="en" hidden>Let's Go!</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('notice-modal');
+  const closeBtn = document.getElementById('notice-close-btn');
+  const flags = document.querySelectorAll('.flag');
+
+  // Set default language to French
+  const setLanguage = (lang) => {
+    document.querySelectorAll('[data-lang]').forEach((el) => {
+      if (el.classList.contains('flag')) return;
+      el.hidden = el.getAttribute('data-lang') !== lang;
+    });
+    // Update active flag styling
+    flags.forEach((flag) => {
+      flag.classList.toggle('opacity-50', flag.getAttribute('data-lang') !== lang);
+    });
+  };
+
+  // Initialize French
+  setLanguage('fr');
+
+  // Language switching
+  flags.forEach((flag) => {
+    flag.addEventListener('click', () => {
+      const lang = flag.getAttribute('data-lang');
+      setLanguage(lang);
+    });
+  });
+
+  // Close modal
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+    }
+  });
+});
+</script>
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur border-b border-gray-200 dark:border-gray-700">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#" class="font-bold text-lg">kvnbbg-creations.io</a>
+      <nav class="hidden md:flex gap-6 text-sm" aria-label="header-nav">
+        <a href="#about">À propos</a><a href="#projects">Projets</a><a href="#chatbot">Chatbot</a><a href="#progress">Progress</a><a href="#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" aria-label="Basculer le thème" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+        <svg id="icon-sun" class="w-5 h-5 hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M10 16a6 6 0 100-12 6 6 0 000 12z"/><path d="M10 0v2m0 16v2m10-10h-2M2 10H0m15.657 6.657l-1.414-1.414M5.757 4.343L4.343 2.929m12.728 0l-1.414 1.414M5.757 15.657l-1.414 1.414"/></svg>
+        <svg id="icon-moon" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707 8 8 0 1017.293 13.293z"/></svg>
+      </button>
+    </div>
+  </header>
+  <main class="pt-20 space-y-24 max-w-7xl mx-auto px-4">
+    <section class="section-animate flex flex-col md:flex-row items-center gap-8" id="about">
+      <div class="flex-1 space-y-4">
+        <h1 class="text-3xl md:text-4xl font-bold">Salut 👋, je suis <span class="text-primary-500">Kevin Marville</span></h1>
+        <p class="text-base text-gray-600 dark:text-gray-400">Développeur créatif &amp; architecte systèmes, je conçois des univers numériques captivants.</p>
+        <div class="flex gap-4">
+          <a href="#contact" class="twin">Me contacter</a>
+          <a href="#projects" class="twin bg-transparent text-primary-500 border border-primary-500">Voir les projets</a>
+           <a href="https://www.mediafire.com/file/ovwjdxtdwwkyk2i/Kevin_Marville_CV_FullStack_Web-Mobile_Developer_Paris_2025.pdf/file" 
+               class="inline-flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              Download Resume
+              <i class="fas fa-arrow-down ml-2"></i></a>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=600&q=80" alt="Espace de travail" class="hero-img md:w-1/2 rounded-lg" loading="lazy">
+    </section>
+    <section id="projects" class="section-animate space-y-8">
+      <h2 class="text-2xl font-bold text-center">Projets phares</h2>
+      <div id="projects-container" class="grid sm:grid-cols-2 gap-6">
+      </div>
+    </section>
+    <section id="chatbot" class="section-animate space-y-6">
+      <h2 class="text-2xl font-bold text-center">Chatbot 🤖</h2>
+      <div id="chat-output" aria-live="polite">
+        <p class="bot chat-bubble">Tapez "glossary" ou "full" pour la liste des commandes, ou "space game" pour une surprise !</p>
+      </div>
+      <div class="flex gap-2">
+        <input type="text" id="user-message" placeholder="Posez votre question…" class="flex-1" aria-label="Message au chatbot"/>
+        <button id="send-btn" class="twin">Envoyer</button>
+      </div>
+      <div id="gamification" class="space-y-4" aria-label="Progression gamifiée">
+        <div class="flex items-center gap-4">
+          <span class="font-semibold" aria-label="Points actuels">Points: <span id="points">0</span></span>
+          <span class="font-semibold" aria-label="Niveau actuel">Niveau: <span id="level">1</span></span>
+        </div>
+        <div class="w-full bg-gray-700 rounded-full h-2" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div id="progress-bar" class="bg-primary-500 h-2 rounded-full" style="width: 0%"></div>
+        </div>
+        <div id="badges" class="flex gap-2 flex-wrap" aria-label="Badges débloqués"></div>
+      </div>
+    </section>
+              <!-- Progress Section -->
+    <section id="progress" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" aria-labelledby="progress-heading">
+      <div class="text-center mb-12">
+        <h2 id="progress-heading" class="text-3xl font-bold">Daily Tracker</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-2">Monitoring my continuous learning and development</p>
+      </div>
+      <div class="max-w-3xl mx-auto animate-fade-in">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+          <div class="flex items-center space-x-4 mb-4">
+            <i class="fas fa-rocket text-primary-500 text-3xl"></i>
+            <div>
+              <h3 class="font-bold text-lg">Self-Disciplined Learner</h3>
+              <p class="text-gray-600 dark:text-gray-400">25h/week across Technical Journals, Research Papers, and Experimental Projects</p>
+            </div>
+          </div>
+          <progress id="progressBar" class="neon-progress" value="72" max="100" aria-label="Learning progress"></progress>
+          <div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>72% Complete</span>
+            <span>Updated: 2025-05-16</span>
+          </div>
+        </div>
+              <div class="progress-links">
+        <a href="https://allmylinks.com/kevinmarville" 
+           class="link-hub pixel-font"
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Visit Kevin Marville's link hub">
+          <i class="fas fa-link link-icon"></i>
+          Find More
+        </a>
+      </div>
+      </div>
+    </section>
+    <section id="contact" class="section-animate space-y-4 text-center">
+      <h2 class="text-2xl font-bold">Contact</h2>
+                <!-- Contact Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" aria-labelledby="contact-heading">
+      <div class="text-center mb-12">
+        <h2 id="contact-heading" class="text-3xl font-bold">Get in Touch Today</h2>
+        <p class="text-gray-500 dark:text-gray-400 mt-2">Let's collaborate on our next project</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in">
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold">Contact Information</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Whether you have a project idea, a question, or just want to connect, I'm all ears (or rather, all text). Reach out and let's create something amazing together!
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4">
+              <div class="mt-1 text-primary-500 dark:text-primary-400">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Email</h4>
+                <a href="mailto:contact@kvnbbg.fr" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors">contact@kvnbbg.fr</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="mt-1 text-primary-500 dark:text-primary-400">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Location</h4>
+                <p class="text-gray-600 dark:text-gray-400">Paris, France</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="mt-1 text-primary-500 dark:text-primary-400">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div>
+                <h4 class="font-medium">Connect</h4>
+                <div class="flex space-x-4 mt-1">
+                 <a href="https://facebook.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+                    Instagram<i class="fab fa-facebook"></i>
+                  </a>
+                  <a href="https://instagram.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                    Instagram<i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/kevinmarville" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                   Linkedin <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://x.com/techandstream" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors" target="_blank" rel="noopener noreferrer" aria-label="X profile">
+                    X<i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form id="contact-form" class="space-y-6" aria-label="Contact form">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+            <input type="text" id="name" name="name" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors"  placeholder="Kevin Marville"
+           required aria-required="true">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">Email</label>
+            <input type="email" id="email" name="email" placeholder="kevin@example.com" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors" required aria-required="true">
+          </div>
+          <div>
+            <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="What can we help you with today?" class="form-input w-full px-4 py-tax-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+            <textarea id="message" name="message" placeholder="Feel free to share as much detail as you like—questions, feedback, or anything on your mind! How can I help you?"
+    rows="6"
+    aria-describedby="message-help" class="form-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white transition-colors" required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="w-full px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors">Send Message</button>
+        </form>
+      </div>
+          <p id="message-help" class="form-text-help text-sm text-gray-500 mt-1">
+    The more context you give us, the better we can tailor our response.
+  </p>
+    </section>
+      <p>Créons quelque chose d’exceptionnel ! <a href="mailto:contact@kvnbbg-creations.io" class="text-primary-500 underline">contact@kvnbbg-creations.io</a></p>
+    </section>
+
+          <script>
+                  document.addEventListener('DOMContentLoaded', () => {
+    const contactSection = document.getElementById('contact');
+    const contactForm = document.getElementById('contact-form');
+    const inputs = contactForm.querySelectorAll('input, textarea');
+    const submitButton = contactForm.querySelector('button');
+    const socialLinks = contactSection.querySelectorAll('.flex.space-x-4 a');
+
+    // Inject inline CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-3px); }
+            75% { transform: translateX(3px); }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            50% { box-shadow: 0 0 6px 1px rgba(59, 130, 246, 0.3); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        .animate-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animate-shake {
+            animation: shake 0.3s ease-in-out;
+        }
+        .animate-glow {
+            animation: glow 1.2s ease-in-out infinite;
+        }
+        .animate-bounce {
+            animation: bounce 0.2s ease-in-out;
+        }
+        .animate-pulse {
+            animation: pulse 1.2s ease-in-out infinite;
+        }
+        .scale-105 {
+            transform: scale(1.05);
+            transition: transform 0.15s ease-in-out;
+        }
+        .shadow-lg {
+            box-shadow: 0 6px 10px -2px rgba(0, 0, 0, 0.1);
+        }
+        .transition-colors {
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-in, .animate-shake, .animate-glow, .animate-bounce, .animate-pulse, .scale-105 {
+                animation: none;
+                transform: none;
+            }
+        }
+        .animate-in, .animate-shake, .animate-bounce, .scale-105 {
+            transform: translateZ(0);
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Polyfill for IntersectionObserver
+    if (!('IntersectionObserver' in window)) {
+        const script = document.createElement('script');
+        script.src = 'https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver';
+        script.onload = () => initObserver();
+        script.onerror = () => console.warn('Polyfill failed to load; animations may not trigger.');
+        document.head.appendChild(script);
+    } else {
+        initObserver();
+    }
+
+    // Initialize IntersectionObserver
+    function initObserver() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '30px' });
+        observer.observe(contactSection);
+    }
+
+    // Debounce utility
+    const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    };
+
+    // Validate input
+    const validateInput = (input) => {
+        try {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                input.classList.add('border-red-500', 'animate-shake');
+                input.classList.remove('border-gray-300', 'dark:border-gray-600');
+                input.setAttribute('aria-invalid', 'true');
+                setTimeout(() => input.classList.remove('animate-shake'), 300);
+                return false;
+            } else if (input.type === 'email' && input.value && !isValidEmail(input.value)) {
+                input.classList.add('border-red-500', 'animate-shake');
+                input.classList.remove('border-gray-300', 'dark:border-gray-600');
+                input.setAttribute('aria-invalid', 'true');
+                setTimeout(() => input.classList.remove('animate-shake'), 300);
+                return false;
+            } else {
+                input.classList.remove('border-red-500');
+                input.classList.add('border-gray-300', 'dark:border-gray-600');
+                input.setAttribute('aria-invalid', 'false');
+                return true;
+            }
+        } catch (error) {
+            console.error('Validation error:', error);
+            return false;
+        }
+    };
+
+    // Email validation
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    }
+
+    // Real-time input validation
+    inputs.forEach(input => {
+        input.addEventListener('input', debounce(() => validateInput(input), 200));
+        input.addEventListener('focus', () => input.classList.add('animate-glow'));
+        input.addEventListener('blur', () => input.classList.remove('animate-glow'));
+    });
+
+    // Form submission
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        try {
+            inputs.forEach(input => {
+                if (!validateInput(input)) isValid = false;
+            });
+
+            if (isValid) {
+                submitButton.disabled = true;
+                submitButton.setAttribute('aria-disabled', 'true');
+                submitButton.textContent = 'Sending...';
+                submitButton.classList.add('animate-pulse');
+
+                // Simulate API call
+                setTimeout(() => {
+                    submitButton.textContent = 'Message Sent!';
+                    submitButton.classList.remove('animate-pulse');
+                    submitButton.classList.add('bg-green-500', 'hover:bg-green-600');
+                    contactForm.reset();
+                    inputs.forEach(input => input.setAttribute('aria-invalid', 'false'));
+
+                    setTimeout(() => {
+                        submitButton.textContent = 'Send Message';
+                        submitButton.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        submitButton.classList.add('bg-primary-500', 'hover:bg-primary-600');
+                        submitButton.disabled = false;
+                        submitButton.setAttribute('aria-disabled', 'false');
+                    }, 1500);
+                }, 1000);
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            submitButton.textContent = 'Error!';
+            setTimeout(() => {
+                submitButton.textContent = 'Send Message';
+                submitButton.disabled = false;
+                submitButton.setAttribute('aria-disabled', 'false');
+            }, 1500);
+        }
+    });
+
+    // Social links hover
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => link.classList.add('animate-bounce'));
+        link.addEventListener('mouseleave', () => link.classList.remove('animate-bounce'));
+    });
+
+    // Submit button hover
+    submitButton.addEventListener('mouseenter', () => {
+        if (!submitButton.disabled) {
+            submitButton.classList.add('scale-105', 'shadow-lg');
+        }
+    });
+    submitButton.addEventListener('mouseleave', () => {
+        submitButton.classList.remove('scale-105', 'shadow-lg');
+    });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href="#contact"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        try {
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        } catch (error) {
+            console.error('Scroll error:', error);
+        }
+    });
+});
+          </script>
+  </main>
+  <footer class="py-6 border-t border-gray-200 dark:border-gray-700 text-center space-y-2">
+    <nav class="flex justify-center gap-4 text-sm" aria-label="Footer navigation">
+      <ul>
+        <li><a rel="me" href="https://mastodon.social/@kevinmarville" class="hover:text-primary-500" target="_blank">Mastodon</a></li>
+      <li><a href="https://github.com/kvnbbg" target="_blank" class="hover:text-primary-500" target="_blank">GitHub</a></li>
+      <li><a href="https://kvnbbg.fr" target="_blank" class="hover:text-primary-500" target="_blank">Blog</a></li>
+      </ul>
+    </nav>
+
+    <!-- Copyright -->
+<p class="text-xs text-gray-500">
+    &copy; <span id="copyrightYear">© 2025</span> Kevin Marville. Tous droits réservés.
+  </p>
+  <script>
+    // Met à jour l’année automatiquement si JS est disponible
+    (function () {
+      const currentYear = new Date().getFullYear();
+      const yearNode    = document.getElementById('copyrightYear');
+      if (yearNode && +yearNode.textContent !== currentYear) {
+        yearNode.textContent = currentYear;
+      }
+    })();
+  </script>
+  </footer>
+  <script>
+    // Theme Handling
+    const root = document.documentElement;
+    const sun = document.getElementById('icon-sun');
+    const moon = document.getElementById('icon-moon');
+    function syncIcons() {
+      if (root.classList.contains('dark')) {
+        sun.classList.remove('hidden');
+        moon.classList.add('hidden');
+      } else {
+        sun.classList.add('hidden');
+        moon.classList.remove('hidden');
+      }
+    }
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      root.classList.add('dark');
+    }
+    syncIcons();
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+      syncIcons();
+    });
+    // Projects
+    const projects = [
+      { title: 'Space Game', desc: 'Exploration WebGL.', img: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=600&q=80', link: 'https://kvnbbg.github.io/Underconstruction-Screen-Space-theme/' },
+      { title: 'Chatbot', desc: 'Assistant IA.', img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80', link: '#chatbot' }
+    ];
+    document.getElementById('projects-container').innerHTML = projects
+      .map(p => `<article class="project-card bg-gray-800 p-4 rounded"><img src="${p.img}" loading="lazy" alt="${p.title}" class="mb-3 rounded"><h3 class="font-semibold mb-1 text-gray-200">${p.title}</h3><p class="text-sm mb-2 text-gray-400">${p.desc}</p><a href="${p.link}" target="_blank" class="text-primary-500 underline">Voir →</a></article>`)
+      .join('');
+    // Gamification
+    let gamificationState = JSON.parse(localStorage.getItem('gamification')) || { points: 0, level: 1, badges: [] };
+    const badges = [
+      { id: 'explorer', name: 'Explorateur', icon: '🚀', condition: () => gamificationState.points >= 50 },
+      { id: 'chatter', name: 'Bavard', icon: '💬', condition: () => gamificationState.points >= 100 }
+    ];
+    function updateGamificationUI() {
+      try {
+        document.getElementById('points').textContent = gamificationState.points;
+        document.getElementById('level').textContent = gamificationState.level;
+        const progress = (gamificationState.points % 100) / 100;
+        document.getElementById('progress-bar').style.width = `${progress * 100}%`;
+        document.getElementById('badges').innerHTML = badges
+          .map(b => `<span class="badge ${gamificationState.badges.includes(b.id) ? 'unlocked' : ''}">${b.icon} ${b.name}</span>`)
+          .join('');
+        localStorage.setItem('gamification', JSON.stringify(gamificationState));
+      } catch (e) {
+        console.error('Gamification UI update failed:', e);
+      }
+    }
+    function awardPoints(points, reason) {
+      try {
+        gamificationState.points += points;
+        if (gamificationState.points >= gamificationState.level * 100) {
+          gamificationState.level += 1;
+          addBubble(`🎉 Niveau ${gamificationState.level} atteint !`, 'bot');
+        }
+        badges.forEach(b => {
+          if (!gamificationState.badges.includes(b.id) && b.condition()) {
+            gamificationState.badges.push(b.id);
+            addBubble(`🏅 Badge "${b.name}" débloqué !`, 'bot');
+          }
+        });
+        updateGamificationUI();
+      } catch (e) {
+        console.error('Award points failed:', e);
+      }
+    }
+    // Chatbot
+    const glossary = {
+      list: 'about, projects, github, blog',
+      about: 'Je suis développeur freelance.',
+      projects: 'Voir GitHub',
+      github: 'https://github.com/kvnbbg',
+      blog: 'https://kvnbbg.fr'
+    };
+    function addBubble(text, className) {
+      try {
+        const p = document.createElement('p');
+        p.className = `${className} chat-bubble`;
+        p.textContent = text;
+        const output = document.getElementById('chat-output');
+        output.appendChild(p);
+        output.scrollTop = output.scrollHeight;
+      } catch (e) {
+        console.error('Add bubble failed:', e);
+      }
+    }
+    function handleMsg() {
+      try {
+        const inp = document.getElementById('user-message');
+        const msg = inp.value.trim();
+        if (!msg) return;
+        addBubble(msg, 'user');
+        inp.value = '';
+        awardPoints(10, 'message');
+        const query = msg.toLowerCase();
+        if (query === 'space game') {
+          window.open('https://kvnbbg.github.io/Underconstruction-Screen-Space-theme/', '_blank');
+          awardPoints(50, 'easter egg');
+          return addBubble('🚀 Lancement du jeu spatial !', 'bot');
+        }
+        if (['full', 'glossary'].includes(query)) {
+          return addBubble(glossary.list, 'bot');
+        }
+        const key = Object.keys(glossary).find(x => query.includes(x));
+        addBubble(key ? glossary[key] : 'Essaye "about" ou "projects"', 'bot');
+      } catch (e) {
+        console.error('Chatbot error:', e);
+        addBubble('Erreur, réessayez.', 'bot');
+      }
+    }
+    document.getElementById('send-btn').addEventListener('click', handleMsg);
+    document.getElementById('user-message').addEventListener('keypress', e => {
+      if (e.key === 'Enter') handleMsg();
+    });
+    // Initialize
+    updateGamificationUI();
+  </script>
+</body>
+</html>
